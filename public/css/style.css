@@ -1,0 +1,352 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+}
+p{
+    margin: 0;
+}
+
+input:focus,
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border: 1px solid #bdbdbd69 !important;
+}
+
+a {
+  text-decoration: none;
+
+}
+.app-download {
+  padding: 0 5px;
+  height: 26px;
+  background: linear-gradient(181deg, #ffd9cc, #fff);
+  border-radius: 14px;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ff490d;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+}
+.balance {
+  color: hsla(0, 0%, 100%, 0.7);
+}
+p.balance-number {
+  font-size: 20px;
+  font-weight: 500;
+}
+.invite {
+  height: 30px;
+  min-width: 86px;
+  text-align: center;
+  line-height: 30px;
+  background: #ff5501;
+  box-shadow: 0 2px 8px 0 rgb(255 181 160 / 52%);
+  border-radius: 18px;
+  border: 1px solid hsla(0, 0%, 100%, 0.77);
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #fff;
+}
+.invite-section {
+  height: 60px;
+  border-radius: 4px;
+  background: url(./indexbj.6b2446d6.png);
+  background-size: 100% 100%;
+  padding: 0 16px 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.invite-h1 {
+  font-size: 20px;
+}
+.section-div div p {
+  font-size: 12px;
+}
+/* #f1f1f1 */
+main {
+  background-color: #f1f1f1;
+}
+.bg-trasparent {
+  background: #ffffff3b;
+  border: 1px solid #ffffff3b;
+}
+.header-text {
+  color: rgb(51, 51, 51);
+  opacity: 1;
+  font-size: 18px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  padding: 6px;
+  padding-left: 30px;
+}
+.header {
+  background: rgb(255, 239, 239);
+}
+.enb {
+  padding: 4px 12px 4px 4px;
+  background-image: url(https://enbwpro.com/static/img/card1.be52a683.png);
+  background-size: 100% 100%;
+  align-items: center;
+  font-size: 12px;
+  font-family: Avenir-HeavyOblique, Avenir;
+  font-weight: 400;
+  color: #fff;
+  width: 62px;
+  text-align: center;
+}
+.rent {
+  padding: 0 16px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  background: #ed2828;
+  border-radius: 16px;
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #fff;
+}
+.income-price {
+  margin-top: -10px;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #9899a6;
+}
+.description {
+  padding-top: 7px;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #6c6d74;
+  margin-top: -10px;
+  border-top: 1px solid #fbefef;
+}
+.msg-right-btn {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 32px;
+  background: #ed2828;
+  box-shadow: 0 6px 24px 0 rgb(255 147 147 / 47%);
+  border-radius: 32px;
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  margin-right: 16px;
+}
+a.go-top {
+  position: absolute;
+  bottom: 109px;
+  right: 29px;
+  background: #c9b1b1;
+  color: black;
+  border: 0;
+}
+.header-bg {
+  background-image: url(./heder-bg@2x.43400e46.png);
+  padding: 0 20px;
+  height: 187px;
+  background-size: 100% 100%;
+}
+.add-bank-btn {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #fff;
+  background: #ed2828;
+  border-radius: 24px;
+  width: 111px;
+  margin: auto;
+  margin-top: 16px;
+}
+.team-bg {
+  background-image: url(img/teambj.3f13a708.png);
+  margin-top: -44px;
+  height: 365px;
+  background-size: 100% 100%;
+}
+.n-invite {
+  margin-top: 30px;
+  width: 90px;
+  height: 32px;
+  background: #31323e;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  line-height: 32px;
+  text-align: center;
+  margin-left: 20px;
+}
+.card-d-d-d {
+  margin-right: 13px;
+  flex: 1;
+  background: linear-gradient(41deg, #fff, #ffcca5);
+  border-radius: 16px;
+  border: 2px solid #fff;
+  padding: 0 8px;
+}
+.description.lh-1.px-2 {
+  font-size: 10px;
+}
+.generator-income {
+  background-image: url(img/generet.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+p.working {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  background: #ed2828;
+  box-shadow: 0 0 12px 0 rgb(177 14 14 / 75%);
+  border-radius: 50%;
+  border: 1px solid hsla(0, 0%, 100%, 0.6);
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  justify-content: center;
+}
+.Deposit-btn {
+  background: #ff5f48;
+  box-shadow: 0 2px 8px 0 rgb(255 95 72 / 23%);
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #fff;
+}
+
+
+
+.background {
+    background-image: url(/invitationbj.cafbe825.png);
+    padding: 104px 15px;
+    background-size: cover;
+    height: 622px;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.ivite-btn {
+    margin-left: 36px;
+    margin-top: 10px;
+    min-width: 140px;
+    max-width: 200px;
+    height: 36px;
+    background: #131313;
+    border-radius: 18px;
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+}
+
+.title {
+    width: 240px;
+    height: 80px;
+    font-size: 32px;
+    font-family: Arial-Black, Arial;
+    font-weight: 900;
+    color: #31323e;
+    line-height: 40px;
+    margin-left: 40px;
+    padding-top: 50px;
+}
+
+.one {
+    margin-top: 30px;
+    width: 196px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #31323e;
+    line-height: 22px;
+    margin-left: 40px;
+}
+
+.boxs {
+    padding: 16px 12px 22px;
+    background: #fff4ec;
+    border-radius: 12px;
+    margin-top: 129px;
+}
+
+.b-title {
+    font-size: 18px;
+    height: 25px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #f66720;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .icon {
+    background: linear-gradient(32deg, #ff7d52, #ffa14d);
+} */
+i.icon.fa-solid.fa-link {
+    background: linear-gradient(32deg, #ff7d52, #ffa14d);
+    padding: 12px;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+}
+
+.muen .m-item .m-item-text {
+    width: 80px;
+    text-align: center;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #31323e;
+    padding: 8px 0 20px 0;
+}
+
+.m-btn {
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    background: #fe5627;
+    border-radius: 24px;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.detailed-description {
+    font-size: 15px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    color: #f66720;
+}

@@ -1,0 +1,2 @@
+https://github.com/SimpleSoftwareIO/simple-qrcode
+https://github.com/mccarlosen/laravel-mpdf

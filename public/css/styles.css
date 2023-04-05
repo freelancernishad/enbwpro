@@ -1,0 +1,57 @@
+
+a{
+    color: #30CF88;
+    text-decoration: none;
+}
+.iconTex {
+    padding: 5px 5px;
+    margin: 0 5px;
+}
+.iconTex i {
+    font-size: 21px !important;
+}
+.iconTex span {
+    font-size: 12px;
+}
+.homeMainContainer {
+    background: #30CF88;
+    padding: 19px 21px 50px 21px;
+    margin-bottom: 27px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.homeMainContainer h3, .homeMainContainer a, .homeMainContainer span, .homeMainContainer marquee {
+    color: white;
+}
+.d-flex.noticebox {
+    background: #5e5e5e29;
+    padding: 7px 6px;
+    border-radius: 11px;
+    box-shadow: 0px 0px 6px 1px #00000066;
+    margin: 9px 0px;
+}
+.d-flex.noticebox span {
+    padding: 0 11px 0 2px;
+    border-right: 1px solid #cfcece;
+}
+.balanceBox span {
+    font-size: 21px;
+    margin: 15px 0 0 0px;
+}
+.myAcc {
+    background-image: url(../frontend/img/profile_bg.4f55d353.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 30px;
+    padding-top: 74px;
+    padding-bottom: 11px;
+}
+.accItemList i {
+    font-size: 37px;
+    color: #30CF88 !important;
+}
+.accItemList {
+    width: 126px;
+    font-size: 13px;
+    text-decoration: none;
+}

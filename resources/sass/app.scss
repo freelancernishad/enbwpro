@@ -1,0 +1,87 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+
+@import 'variables';
+@import 'datatables.net-dt/css/jquery.dataTables.min.css';
+@import 'datatables.net-buttons-dt/css/buttons.dataTables.css';
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
+@import 'share-button-links/main.scss';
+@import 'vue-multiselect/dist/vue-multiselect.min.css';
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+
+// .noty_bar {
+//     margin: 8px 0;
+// }
+
+// .noty_type__success {
+//     background: rgb(198, 11, 198);
+//     padding: 10px 12px;
+//     color: white;
+// }
+// .noty_type__error {
+//     background: #ff0000;
+//     padding: 10px 12px;
+//     color: white;
+// }
+
+
+// .noty_type__alert {
+//     background: #DC3545;
+//     padding: 10px 12px;
+//     color: white;
+// }
+
+// .noty_type__warning {
+//     background: #FFC107;
+//     padding: 10px 12px;
+//     color: black;
+// }
+
+
+// .noty_type__info {
+//     background: #0DCAF0;
+//     padding: 10px 12px;
+//     color: white;
+// }
+
+// .noty_type__information {
+//     background: #0DCAF0;
+//     padding: 10px 12px;
+//     color: white;
+// }
+
+
+@media(max-width:767px){
+    .btn-fill-md, .btn-fill-lg, .fw-btn-fill, .btn-fill-lmd {
+font-size: 13px;
+padding: 8px 15px;
+}
+th, th label {
+font-size: 13px !important;
+}td {
+font-size: 12px;
+
+}
+
+.tablecolhide{
+display: none;
+}
+.textwrap{
+white-space: break-spaces;
+}
+.mobilefonthead {
+font-size: 14px;
+}
+
+.fixednav {
+position: fixed;
+width: 100%;
+z-index: 10;
+}
+
+
+}
