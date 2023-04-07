@@ -23,7 +23,7 @@
               <p class="income-price mt-3">Daily income</p>
           </div>
           <div>
-              <p style="color: #216cf7;">≈{{ packag.packageEarn*packag.packageDuration }}BDT</p>
+              <p style="color: #216cf7;">≈{{ packag.packagePrice }}BDT</p>
               <p class="income-price">Rental Price</p>
           </div>
           <a class="rent" href="javascript:void(0)" @click="upgrade(packag)">rent</a>

@@ -17,7 +17,7 @@
                 <p>Vip</p>
             </router-link>
 
-            <router-link :to="{name:'package'}" class="defaltColor navLink">
+            <router-link :to="{name:'Earning'}" class="defaltColor navLink">
                 <i class="fa-regular fa-circle-check"></i>
                 <p>Earning</p>
             </router-link>
