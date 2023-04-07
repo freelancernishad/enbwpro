@@ -14,7 +14,12 @@
 
             <router-link :to="{name:'package'}" class="defaltColor navLink">
                 <i class="fa-solid fa-truck-fast"></i>
-                <p>Generator</p>
+                <p>Vip</p>
+            </router-link>
+
+            <router-link :to="{name:'package'}" class="defaltColor navLink">
+                <i class="fa-regular fa-circle-check"></i>
+                <p>Earning</p>
             </router-link>
 
             <router-link :to="{name:'noreward'}" class="defaltColor navLink">

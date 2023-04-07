@@ -5,9 +5,9 @@
         <p class="py-2 text-white"> Team </p>
     </header>
 
-    <main class="main-bg-absulate">
+    <main class="main-bg-absulate ">
 
-        <div class="bg-white mx-4 px-4 text-center shadow-lg">
+        <div class="mx-4 px-4 text-center shadow-lg levelBg">
           <div class="d-flex gap-5 justify-content-between lh-1 py-3 text-start">
             <div class="w-50 text-start" >
                 <p class="gray">Team Size</p>
@@ -37,7 +37,7 @@
         <div class="d-flex justify-content-around flex-wrap" >
 
 
-        <div class="bg-white px-4 shadow-lg text-center topp" style="width: 46%;margin-top: 25px;">
+        <div class="px-4 shadow-lg text-center topp levelBg" style="width: 96%;margin-top: 25px;">
             <p class="border-bottom fw-bold mb-0 p-2">Level 1</p>
           <div class="border-0 d-flex gap-5 justify-content-between lh-1 mt-3 py-3 text-start topp">
             <div class="w-50 text-start" >
@@ -52,7 +52,7 @@
           <router-link :to="{name:'teamdaily',query:{level:'Level1'}}" class="buttonDetails border-0">More details</router-link>
         </div>
 
-        <div class="bg-white px-4 shadow-lg text-center topp" style="width: 46%;margin-top: 25px;">
+        <div class="px-4 shadow-lg text-center topp levelBg" style="width: 96%;margin-top: 25px;">
             <p class="border-bottom fw-bold mb-0 p-2">Level 2</p>
           <div class="border-0 d-flex gap-5 justify-content-between lh-1 mt-3 py-3 text-start topp">
             <div class="w-50 text-start" >
@@ -67,7 +67,7 @@
           <router-link :to="{name:'teamdaily',query:{level:'Level2'}}" class="buttonDetails border-0">More details</router-link>
         </div>
 
-        <div class="bg-white mb-5 pb-5 px-4 shadow-lg text-center topp" style="width: 46%;margin-top: 25px;">
+        <div class="mb-5 pb-5 px-4 shadow-lg text-center topp levelBg" style="width: 96%;margin-top: 25px;">
             <p class="border-bottom fw-bold mb-0 p-2">Level 3</p>
           <div class="border-0 d-flex gap-5 justify-content-between lh-1 mt-3 py-3 text-start topp">
             <div class="w-50 text-start" >
@@ -122,3 +122,9 @@ export default {
     },
 }
 </script>
+
+<style>
+.levelBg {
+    background: orange !important;
+}
+</style>

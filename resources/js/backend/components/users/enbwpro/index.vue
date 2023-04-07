@@ -54,16 +54,16 @@
             <p>Generator income</p>
         </router-link>
 
-        <router-link :to="{name:'faq'}" class="text-dark">
-            <i class="fa-solid fa-clipboard-question"></i>
-            <p>Faq</p>
+        <router-link :to="{name:'noreward'}" class="text-dark">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p>Info</p>
         </router-link>
     </section>
     <section class="invite-section mx-2 mb-5">
         <h1 class="fw-bold invite-h1 text-white">Invite friends to earn rewards</h1>
         <router-link :to="{name:'share'}" class="invite text-decoration-none" href="">Invite</router-link>
     </section>
- 
+
 
   </main>
 

@@ -2256,11 +2256,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           if (res.data == 0) {
             _this3.isActive = false;
 
-            _this3.notifiyGlobal('Please Enter Valid Phone Number and Password');
+            _this3.notifiyGlobal('Invalid credentials');
           } else if (res.data == 422) {
             _this3.isActive = false;
 
-            _this3.notifiyGlobal('Your Account Has Been Banded!');
+            _this3.notifiyGlobal('Banded!');
           } else if (res.data == 444) {
             _this3.isActive = false;
 
@@ -2279,7 +2279,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
             _this3.isActive = false;
 
-            _this3.notifiyGlobal('Signed in successfully Complete'); // this.$router.push({name: 'home'})
+            _this3.notifiyGlobal('Success'); // this.$router.push({name: 'home'})
             // window.location.href = '/dashboard'
 
           }
@@ -2841,7 +2841,7 @@ var render = function render() {
     staticClass: "Preloader"
   }, [_c("img", {
     attrs: {
-      width: "40px",
+      width: "18px",
       src: _vm.$asseturl + "loading-gif.gif"
     }
   })])]) : _vm._e();

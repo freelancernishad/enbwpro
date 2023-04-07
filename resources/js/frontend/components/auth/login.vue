@@ -87,10 +87,10 @@ export default {
 
                         if (res.data == 0) {
                             this.isActive = false
-                            this.notifiyGlobal('Please Enter Valid Phone Number and Password');
+                            this.notifiyGlobal('Invalid credentials');
                         } else if (res.data == 422) {
                             this.isActive = false
-                            this.notifiyGlobal('Your Account Has Been Banded!');
+                            this.notifiyGlobal('Banded!');
                         } else if (res.data == 444) {
                             this.isActive = false
                             this.notifiyGlobal('You Cant Login Multiple account same device!');
@@ -108,7 +108,7 @@ export default {
                                 window.location.href = '/dashboard/user'
                             }
                             this.isActive = false
-                            this.notifiyGlobal('Signed in successfully Complete');
+                            this.notifiyGlobal('Success');
 
                             // this.$router.push({name: 'home'})
                             // window.location.href = '/dashboard'

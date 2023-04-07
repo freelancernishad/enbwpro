@@ -2239,7 +2239,7 @@ var render = function render() {
     staticClass: "Preloader"
   }, [_c("img", {
     attrs: {
-      width: "40px",
+      width: "18px",
       src: _vm.$asseturl + "loading-gif.gif"
     }
   })])]) : _vm._e();

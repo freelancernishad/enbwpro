@@ -14,10 +14,16 @@
         <p class="description mb-0">Account: {{ row.user.mobile }}</p>
     </div>
 </div>
-<div class="invite-section mx-2 mb-5 mt-3">
+
+<div class="mx-2 mb-5 mt-3 d-flex accountDW">
+    <router-link :to="{name:'Recharge'}" class="text-dark mt-3"><p>Recharge</p></router-link>
+    <router-link :to="{name:'withdraw'}" class="text-dark mt-3"><p>Withdraw</p></router-link>
+</div>
+
+<!-- <div class="invite-section mx-2 mb-5 mt-3"> -->
     <!-- <h1 class="fw-bold invite-h1 text-danger">Gift Redemption</h1>
     <a class="invite text-decoration-none" href="">exchange</a> -->
-</div>
+<!-- </div> -->
 
 </header>
 <main class="bg-white">
@@ -108,5 +114,13 @@ section.px-4.d-flex.justify-content-between.mx-4.py-4.text-center.section-div {
     margin: 11px 0px;
     padding: 11px 0;
     background: #eb5462;
+}
+.accountDW a {
+    width: 50%;
+    text-align: center;
+    background: orange;
+    padding: 7px 5px;
+    border-right: 1px solid white;
+    color: white !important;
 }
 </style>

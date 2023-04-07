@@ -1,7 +1,7 @@
 <template>
     <div class="surePopup"  v-if="Isactive" >
         <div class="Preloader">
-            <img width="40px" :src="$asseturl+'loading-gif.gif'"/>
+            <img width="18px" :src="$asseturl+'loading-gif.gif'"/>
         </div>
     </div>
 </template>
