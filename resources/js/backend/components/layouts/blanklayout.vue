@@ -22,9 +22,10 @@
                 <p>Earning</p>
             </router-link>
 
-            <router-link :to="{name:'noreward'}" class="defaltColor navLink">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <p>Info</p>
+            <router-link :to="{name:'support'}" class="defaltColor navLink">
+                <!-- <i class="fa-solid fa-circle-exclamation"></i> -->
+                <img style="width: 30px;filter: hue-rotate(77deg);" src="https://www.seekpng.com/png/detail/851-8517093_it-support-company-technical-support-icon.png" alt="">
+                <p>Service</p>
             </router-link>
 
 

@@ -34,7 +34,7 @@
 
 
                     <div class="col-4" v-if="settings.telesupport2">
-                        <a :href="settings.telesupport1" class="d-block text-center profileLinks">
+                        <a :href="settings.telesupport2" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: #2EA2DB;"></i> <br/>
                             <span>টেলিগ্রাম<br/> সাপোর্ট</span>
                         </a>
@@ -42,7 +42,7 @@
 
 
                     <div class="col-4" v-if="settings.telesupport3">
-                        <a :href="settings.telesupport1" class="d-block text-center profileLinks">
+                        <a :href="settings.telesupport3" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: #2EA2DB;"></i> <br/>
                             <span>টেলিগ্রাম<br/> সাপোর্ট</span>
                         </a>
@@ -217,7 +217,7 @@ export default {
     font-size: 12px;
     color: black;
     margin: 14px 3px;
-    border: 2px solid #2ea2db;
+    /* border: 2px solid #2ea2db; */
     border-radius: 5px;
 }
 section.accontDetails {
