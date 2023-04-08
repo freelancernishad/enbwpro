@@ -56,7 +56,7 @@
 
         <router-link :to="{name:'noreward'}" class="text-dark">
             <i class="fa-solid fa-circle-exclamation"></i>
-            <p>Info</p>
+            <p>Invest Info</p>
         </router-link>
     </section>
     <section class="invite-section mx-2 mb-5">
@@ -65,7 +65,17 @@
     </section>
 
 
+    <div class="parters">
+
+        <h4>Our Partners</h4>
+
+        <img :src="$asseturl+'parters.jpg'" width="90%" alt="">
+    </div>
+
   </main>
+
+
+
 
 
     <Preload :Isactive="isActive"/>
@@ -144,4 +154,16 @@ export default {
     background: #d14d0ec7;
     color: white;
 }
+
+
+.parters {
+    text-align: center !important;
+}
+
+.parters h4 {
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--defaltColor);
+    color: var(--defaltColor);
+}
+
 </style>

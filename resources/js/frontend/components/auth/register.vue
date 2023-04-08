@@ -34,7 +34,7 @@
 
 
 
-  <button class="btn btn-danger w-100 py-3" type="submit">Confirm</button>
+  <button class="btn btn-danger w-100 py-3 defaltColorBg" type="submit">Confirm</button>
 
  <router-link :to="{ name: '/login' }" class="btn text-info w-100" type="button" >Login</router-link>
 </form>

@@ -18,7 +18,7 @@
     <span class="input-group-text py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
     <input type="password" class="form-control" placeholder="Enter Your Password" aria-label="password" v-model="form.password" aria-describedby="basic-addon1">
   </div>
-  <button class="btn btn-danger w-100 py-3" type="submit">Login</button>
+  <button class="btn btn-danger w-100 py-3 defaltColorBg" type="submit">Login</button>
 
  <router-link :to="{name:'register'}" class="btn text-info w-100">Register</router-link>
 </form>

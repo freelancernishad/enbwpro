@@ -73,7 +73,7 @@
 
 
 
-<script src="{{ asset('js/backend.js?ver=1.0.13') }}"></script>
+<script src="{{ asset('js/backend.js?ver=1.0.14') }}"></script>
 
 
 

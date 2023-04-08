@@ -18,11 +18,17 @@
              --defaltColor:#B000FF;
         }
 
+        .defaltColor{
+            color: var(--defaltColor) !important;
+        }
 
+        .defaltColorBg {
+                background: var(--defaltColor) !important;
+            }
     </style>
 
     <link rel="stylesheet" href="{{ asset('css/app.css?ver=1.0.2') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css?ver=1.0.3') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?ver=1.0.5') }}">
 
 
 
@@ -70,6 +76,6 @@ console.log("{{ Auth::user() }}")
         </script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
-    <script src="{{ asset('js/frontend.js?ver=1.0.13') }}"></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.14') }}"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 
         <main class="background">
         <h2 class="title">Invite friends</h2>
-        <p class="one">invite friends to join Enbw earn rewards</p>
+        <p class="one">invite friends to join and earn rewards</p>
         <!-- <button class="ivite-btn border-0">invitation rules</button> -->
 
 
@@ -25,13 +25,13 @@
                 <div class="m-item text-center">
                     <div class=""> <i class="icon fa-solid fa-link"></i></div>
                     <div class="m-item-text">
-                        <span>Share the link with your friends</span>
+                        <span>Registraion success</span>
                     </div>
                 </div>
                 <div class="m-item text-center">
                     <div class=""> <i class="icon fa-solid fa-link"></i></div>
                     <div class="m-item-text">
-                        <span>Share the link with your friends</span>
+                        <span>Earn Rewards</span>
                     </div>
                 </div>
 
@@ -47,16 +47,14 @@
                 <span>Detailed description</span>
             </div>
 
-            <p class="detailed-description my-3">Click the copy link to invite friends to join and get rewards Newcomers
-                can
-                get BDT and a free generator when your friends register with your invitation link, you can get BDT
-                invitation bonus. The more invites, the more rewards. Click "Copy Link" to send to your friends. When
-                your friends sign up using your invite link, the person you invite becomes part of your team. You cannot
-                create fake accounts. If a fake account is created, the company will ban the account (the fake account
-                and the owner of the fake account); the right to interpret this website belongs to the platform.</p>
-            <div class="mt-4 text-center">
+            <p class="detailed-description my-3">
+                You will get a bonus of Rs.5 20 successful referrals.
+ <br>
+                Your friend will get 10% bonus if they deposit.
+            </p>
+            <!-- <div class="mt-4 text-center">
                 <a class="text-decoration-none " href="#">Invitation Reward Details >></a>
-            </div>
+            </div> -->
         </div>
 
 

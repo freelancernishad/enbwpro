@@ -3223,7 +3223,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-danger w-100 py-3",
+    staticClass: "btn btn-danger w-100 py-3 defaltColorBg",
     attrs: {
       type: "submit"
     }
@@ -3484,7 +3484,7 @@ var render = function render() {
       click: _vm.sentOtp
     }
   }, [_vm._v(_vm._s(_vm.otpsent))])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-danger w-100 py-3",
+    staticClass: "btn btn-danger w-100 py-3 defaltColorBg",
     attrs: {
       type: "submit"
     }
