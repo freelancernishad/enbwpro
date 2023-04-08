@@ -19,6 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'mobileCode',
+        'flags',
         'mobile',
         'username',
         'ref_by',

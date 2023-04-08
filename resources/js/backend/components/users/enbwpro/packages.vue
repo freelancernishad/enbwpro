@@ -10,7 +10,7 @@
 <section>
 
 
-    <div class="bg-white mb-2 mx-2 p-2 rounded-1" style="line-height: 35px;" v-for="packag in packages" :key="packag.id">
+    <div class="mb-2 mx-2 p-2 rounded-1 vipContainer" style="line-height: 35px;" v-for="packag in packages" :key="packag.id">
         <div class=" d-flex gap-1 justify-content-between ">
           <div class=" d-flex gap-1">
               <p>{{ packag.name }}</p>
@@ -26,7 +26,7 @@
               <p style="color: #216cf7;">≈{{ packag.packagePrice }}BDT</p>
               <p class="income-price">Rental Price</p>
           </div>
-          <a class="rent" href="javascript:void(0)" @click="upgrade(packag)">rent</a>
+          <a class="rent" href="javascript:void(0)" @click="upgrade(packag)">Upgrade Now</a>
       </div>
       <p class="description">Note: Equipment purchases are valid for {{ packag.packageDuration }} days and will generate ≈ {{ packag.packageEarn }}BDT per day for you. You can withdraw cash to your account at any time. This machine will earn a total of {{ packag.packageEarn*packag.packageDuration }}BDT in {{ packag.packageDuration }} days</p>
     </div>
@@ -126,5 +126,7 @@ export default {
 .homeicons i {
     font-size: 35px;
 }
-
+.vipContainer {
+    background: #b000ff40;
+}
 </style>

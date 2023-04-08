@@ -22,8 +22,8 @@
             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
             <input type="password" class="form-control" placeholder="Enter new Password" v-model="accountPass.confirm" aria-label="Username" aria-describedby="basic-addon1">
           </div>
-          <input class="description mx-2" type="checkbox" >Show Password <br>
-          <button type="submit" class="btn btn-danger mt-3 mx-1 w-100">Reset</button>
+
+          <button type="submit" class="btn btn-danger mt-3 mx-1 w-100 defaltColorBg">Reset</button>
 
 
  </div>

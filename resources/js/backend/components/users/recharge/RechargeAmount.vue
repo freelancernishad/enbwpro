@@ -2,7 +2,7 @@
     <div>
 
 
-        <header style=" background: rgb(237, 40, 40);;
+        <header style=" background: var(--defaltColor);
   padding: 7px 12px;">
         <h1 class="text-white" style="height: 44px;
     font-size: 16px;
@@ -17,7 +17,7 @@
 
     <form @submit.stop.prevent="onSubmit">
         <div style="padding: 0 12px;
-        background: linear-gradient(1turn,#f1f3f8,#f77f7f 58%,#ed2828);
+        background: linear-gradient(1turn, rgb(241, 243, 248), rgb(151 127 247) 58%, #B000FF);
     ">
             <div class="d-flex justify-content-between">
                 <p class="ms-3 balance">Balance</p>
@@ -199,7 +199,7 @@ body {
             margin: 0;
             padding: 0 13px;
             line-height: 39px;
-            background: #ed2828;
+            background: var(--defaltColor);
             border-radius: 8px;
             font-size: 16px;
             font-family: PingFangSC-Regular, PingFang SC;

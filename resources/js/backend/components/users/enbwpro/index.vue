@@ -3,7 +3,7 @@
 
 
 
-        <header class="bg-danger py-2 rounded-bottom-4 text-white">
+        <header class="defaltColorBg py-2 rounded-bottom-4 text-white">
     <div class="align-items-center d-flex justify-content-between mx-2 pt-2 text-white">
         <p class="fs-3">Hello</p>
         <p class="app-download"><i class="fa-solid fa-download p-2"></i>App download</p>
@@ -49,10 +49,10 @@
             <i class="fa-solid fa-arrow-down"></i>
             <p>Withdrawals</p>
         </router-link>
-        <router-link :to="{name:'Earning'}" class="text-dark">
+        <span @click="dailyCheckIn" class="text-dark">
             <i class="fa-regular fa-circle-check"></i>
-            <p>Generator income</p>
-        </router-link>
+            <p>Check In</p>
+        </span>
 
         <router-link :to="{name:'noreward'}" class="text-dark">
             <i class="fa-solid fa-circle-exclamation"></i>

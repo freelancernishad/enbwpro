@@ -7,7 +7,7 @@
 
 
 <div class="align-items-center d-flex pt-5 gap-3">
-    <img :src="$asseturl+'img/logo.jpg'" alt="" style="width: 60px; height: 60px; border-radius: 50px;">
+    <img :src="row.user.flags" alt="" style="width: 60px; height: 60px; border-radius: 50px;">
     <div>
         <p class="mb-0" style="font-size: 19px;
         font-family: ui-rounded;">ID: {{ row.user.username }}</p>
@@ -113,7 +113,7 @@ section.px-4.d-flex.justify-content-between.mx-4.py-4.text-center.section-div {
     color: #fff6f6;
     margin: 11px 0px;
     padding: 11px 0;
-    background: #eb5462;
+    background: var(--defaltColor);
 }
 .accountDW a {
     width: 50%;

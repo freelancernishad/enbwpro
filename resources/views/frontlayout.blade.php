@@ -9,13 +9,13 @@
     <!-- Bootstrap CSS -->
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet" >
     <link href="{{ asset('frontend/css/font-awesome.min.css') }}" rel="stylesheet" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.min.css" integrity="sha512-ioRJH7yXnyX+7fXTQEKPULWkMn3CqMcapK0NNtCN8q//sW7ZeVFcbMJ9RvX99TwDg6P8rAH2IqUSt2TLab4Xmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         *{
             --van-cell-group-background-color:white;
              --van-button-default-background-color:white;
-             --defaltColor:#d14d0e;
+             --defaltColor:#B000FF;
         }
 
 
@@ -70,6 +70,6 @@ console.log("{{ Auth::user() }}")
         </script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
-    <script src="{{ asset('js/frontend.js?ver=1.0.12') }}"></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.13') }}"></script>
 </body>
 </html>

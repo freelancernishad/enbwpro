@@ -18,7 +18,7 @@
 
 
 
-    <header style=" background: rgb(237, 40, 40);;
+    <header style=" background: var(--defaltColor);
   padding: 7px 12px;">
         <h1 class="text-white" style="height: 44px;
     font-size: 16px;
@@ -74,7 +74,7 @@
 
     <main>
         <div style="padding: 0 12px;
-        background: linear-gradient(1turn,#f1f3f8,#f77f7f 58%,#ed2828);">
+        background: linear-gradient(1turn, rgb(241, 243, 248), rgb(151 127 247) 58%, #B000FF);">
             <div class="text-center" style="padding: 25px 2px;">
 
                 <p class="ms-3 balance">Withdrawal amount</p>

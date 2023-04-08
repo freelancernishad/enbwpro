@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="header-text mb-5 defaltColorBg" style="margin-bottom: -16px !important;">
-        <p class="py-2 text-white"> Mobil Incentive Rules </p>
+        <p class="py-2 text-white">  </p>
     </header>
     <main class="mb-5 pb-5">
         <div>
@@ -28,7 +28,7 @@
                                 <th>Price</th>
                                 <th>Every Day</th>
                                 <th>Per Month</th>
-                                <th>Total revenue</th>
+                                <th>Total Revenue</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -157,8 +157,8 @@ export default {
 <style scoped>
 
 .bg-gd {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(90deg, rgb(175 74 0) 0%, rgb(168 69 134) 45%, rgb(194 171 9) 100%);
+    background: var(--defaltColor);
+    /* background: linear-gradient(90deg, rgb(175 74 0) 0%, rgb(168 69 134) 45%, rgb(194 171 9) 100%); */
 }
 
 th {
@@ -171,7 +171,7 @@ th {
 td {
 
     border: 1px solid white;
-    background: #2661B1;
+    background: var(--defaltColor);
     text-align: center;
     font-size: 10px;
 }
@@ -180,8 +180,8 @@ thead {
     background: #6B5CA1;
 }
 .bg-gdd {
-    background: rgb(19,242,255);
-    background: linear-gradient(180deg, #fff113 0%, rgb(36 205 102) 45%, rgb(255 183 138) 100%);
+    background: rgb(219 255 19);
+    /* background: linear-gradient(180deg, #fff113 0%, rgb(36 205 102) 45%, rgb(255 183 138) 100%); */
 
 }
 </style>

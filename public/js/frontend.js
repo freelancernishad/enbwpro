@@ -2174,8 +2174,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
-    this.addcountry();
     this.countryList();
+    this.addcountry('+880', 'https://flagcdn.com/w320/bd.png');
   },
   data: function data() {
     return {
@@ -2193,16 +2193,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         mobile: '',
         password: ''
       },
-      country: '+880',
       mobileCode: '',
+      flags: '',
+      contryname: '',
       errors: {},
       codes: {},
+      counrties: {},
+      showCountry: true,
       loadLogin: false
     };
   },
   methods: {
-    countryList: function countryList() {
+    showAllCountry: function showAllCountry() {
+      this.showCountry = true;
+    },
+    closeAllCountry: function closeAllCountry() {
+      this.showCountry = false;
+      this.contryname = '';
+      this.searchCountry();
+    },
+    removeString: function removeString(str) {
+      // console.log(str);
+      // str = str.slice(1);
+      var cCode = '';
+
+      if (str) {
+        if (str.length > 0) {
+          cCode = str[0];
+        } else {
+          cCode = str;
+        }
+      } else {
+        cCode = '';
+      }
+
+      return cCode;
+    },
+    searchCountry: function searchCountry() {
       var _this = this;
+
+      var obj = this.counrties.filter(function (item) {
+        return Object.values(item).some(function (value) {
+          return value.toString().toLowerCase().includes(_this.contryname.toLowerCase());
+        });
+      });
+      this.codes = obj; // let obj = search(this.contryname,this.codes);
+      // let obj = this.codes.find(o => o.name.common === this.contryname);
+
+      console.log(obj);
+    },
+    countryList: function countryList() {
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var res;
@@ -2211,14 +2252,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.callApi('get', "".concat(_this.$asseturl, "CountryCodes.json"), []);
+                return _this2.callApi('get', "https://restcountries.com/v3.1/all", []);
 
               case 2:
                 res = _context.sent;
                 // console.log(res)
-                _this.codes = res.data;
+                _this2.codes = res.data;
+                _this2.counrties = res.data;
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2226,17 +2268,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    addcountry: function addcountry() {
-      var _this2 = this;
+    addcountry: function addcountry(mobileCode, flags) {
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.mobileCode = _this2.country;
+                // console.log(country.idd.root)
+                _this3.mobileCode = mobileCode;
+                _this3.flags = flags;
 
-              case 1:
+                _this3.closeAllCountry();
+
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -2245,7 +2291,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     login: function login() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.isActive = true;
 
@@ -2254,17 +2300,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       } else {
         axios.post('/login', this.form).then(function (res) {
           if (res.data == 0) {
-            _this3.isActive = false;
+            _this4.isActive = false;
 
-            _this3.notifiyGlobal('Invalid credentials');
+            _this4.notifiyGlobal('Invalid credentials');
           } else if (res.data == 422) {
-            _this3.isActive = false;
+            _this4.isActive = false;
 
-            _this3.notifiyGlobal('Banded!');
+            _this4.notifiyGlobal('Banded!');
           } else if (res.data == 444) {
-            _this3.isActive = false;
+            _this4.isActive = false;
 
-            _this3.notifiyGlobal('You Cant Login Multiple account same device!');
+            _this4.notifiyGlobal('You Cant Login Multiple account same device!');
 
             localStorage.setItem('dmdevice', 1);
           } else {
@@ -2277,14 +2323,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               window.location.href = '/dashboard/user';
             }
 
-            _this3.isActive = false;
+            _this4.isActive = false;
 
-            _this3.notifiyGlobal('Success'); // this.$router.push({name: 'home'})
+            _this4.notifiyGlobal('Success'); // this.$router.push({name: 'home'})
             // window.location.href = '/dashboard'
 
           }
         })["catch"](function (error) {
-          return _this3.errors = error.response.data.errors;
+          return _this4.errors = error.response.data.errors;
         });
       }
     },
@@ -2323,6 +2369,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     this.genaratedCaptcha = Math.floor(Math.random() * (9999 - 1111) + 1111); // if (User.loggedIn()) {
@@ -2339,12 +2387,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.refercheck();
     }
 
-    this.form.country = "+880";
     this.countryList();
-    this.addcountry();
+    this.addcountry('+880', 'https://flagcdn.com/w320/bd.png');
   },
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       isActive: false,
       PackPurchase: false,
       Messageactive: false,
@@ -2367,17 +2416,99 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       usernameMatch: 1,
       refer: 0,
-      errors: {},
-      codes: {},
-      showPassword: true,
-      CshowPassword: true,
-      WshowPassword: true
-    };
+      errors: {}
+    }, _defineProperty(_ref, "mobileCode", ''), _defineProperty(_ref, "flags", ''), _defineProperty(_ref, "contryname", ''), _defineProperty(_ref, "errors", {}), _defineProperty(_ref, "codes", {}), _defineProperty(_ref, "counrties", {}), _defineProperty(_ref, "showCountry", true), _defineProperty(_ref, "showPassword", true), _defineProperty(_ref, "CshowPassword", true), _defineProperty(_ref, "WshowPassword", true), _ref;
   },
   methods: {
     // setLang(){
     //     localStorage.setItem('language',this.$i18n.locale)
     // },
+    showAllCountry: function showAllCountry() {
+      this.showCountry = true;
+    },
+    closeAllCountry: function closeAllCountry() {
+      this.showCountry = false;
+      this.contryname = '';
+      this.searchCountry();
+    },
+    removeString: function removeString(str) {
+      // console.log(str);
+      // str = str.slice(1);
+      var cCode = '';
+
+      if (str) {
+        if (str.length > 0) {
+          cCode = str[0];
+        } else {
+          cCode = str;
+        }
+      } else {
+        cCode = '';
+      }
+
+      return cCode;
+    },
+    searchCountry: function searchCountry() {
+      var _this = this;
+
+      var obj = this.counrties.filter(function (item) {
+        return Object.values(item).some(function (value) {
+          return value.toString().toLowerCase().includes(_this.contryname.toLowerCase());
+        });
+      });
+      this.codes = obj; // let obj = search(this.contryname,this.codes);
+      // let obj = this.codes.find(o => o.name.common === this.contryname);
+
+      console.log(obj);
+    },
+    countryList: function countryList() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this2.callApi('get', "https://restcountries.com/v3.1/all", []);
+
+              case 2:
+                res = _context.sent;
+                // console.log(res)
+                _this2.codes = res.data;
+                _this2.counrties = res.data;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    addcountry: function addcountry(mobileCode, flags) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                // console.log(country.idd.root)
+                _this3.mobileCode = mobileCode;
+                _this3.flags = flags;
+
+                _this3.closeAllCountry();
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
     checkstart: function checkstart() {
       if (this.form.mobile != '') {
         if (this.form.mobile.charAt(0) == 1) {} else {
@@ -2387,107 +2518,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     sentOtp: function sentOtp() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _this.isActive = true;
-
-                if (!(_this.form.mobile.length > 10)) {
-                  _context.next = 6;
-                  break;
-                }
-
-                _this.isActive = false;
-
-                _this.notifiyGlobal("Mobile Number must be contain 10 digit");
-
-                _context.next = 17;
-                break;
-
-              case 6:
-                if (!(_this.form.mobile.charAt(0) == 1)) {
-                  _context.next = 15;
-                  break;
-                }
-
-                _context.next = 9;
-                return _this.callApi('post', "/api/sent/otp?mobile=".concat(_this.form.mobile), []);
-
-              case 9:
-                res = _context.sent;
-                _this.isActive = false;
-                _this.otpsent = 'Sent Again';
-
-                if (res.data == 'cross limit') {
-                  _this.notifiyGlobal("You can't sent any otp today!");
-                } else if (res.data == 'time not finished') {
-                  _this.notifiyGlobal("Please Wait for sent again Otp");
-                } else {
-                  _this.notifiyGlobal("Otp Successfully sent you mobile number");
-                }
-
-                _context.next = 17;
-                break;
-
-              case 15:
-                _this.isActive = false;
-
-                _this.notifiyGlobal("Mobile number must be start '1'");
-
-              case 17:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    usernamecheck: function usernamecheck() {
-      var _this2 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var res;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                if (!(_this2.form.username == "")) {
-                  _context2.next = 4;
-                  break;
-                }
-
-                _this2.usernameMatch = 0;
-                _context2.next = 8;
-                break;
-
-              case 4:
-                _context2.next = 6;
-                return _this2.callApi("get", "/api/count/username/check?username=".concat(_this2.form.username), []);
-
-              case 6:
-                res = _context2.sent;
-
-                if (res.data == 0) {
-                  _this2.usernameMatch = 2;
-                } else {
-                  _this2.usernameMatch = 1;
-                }
-
-              case 8:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    countryList: function countryList() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var res;
@@ -2495,15 +2526,77 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
-                return _this3.callApi("get", "".concat(_this3.$asseturl, "CountryCodes.json"), []);
+                _this4.isActive = true;
 
-              case 2:
+                if (_this4.form.mobile) {
+                  _context3.next = 6;
+                  break;
+                }
+
+                _this4.isActive = false;
+
+                _this4.notifiyGlobal("Mobile Number Requeired");
+
+                _context3.next = 27;
+                break;
+
+              case 6:
+                if (!(_this4.form.mobile.length > 10)) {
+                  _context3.next = 11;
+                  break;
+                }
+
+                _this4.isActive = false;
+
+                _this4.notifiyGlobal("Mobile Number must be contain 10 digit");
+
+                _context3.next = 27;
+                break;
+
+              case 11:
+                if (!(_this4.form.mobile.length < 10)) {
+                  _context3.next = 16;
+                  break;
+                }
+
+                _this4.isActive = false;
+
+                _this4.notifiyGlobal("Mobile Number must be contain 10 digit");
+
+                _context3.next = 27;
+                break;
+
+              case 16:
+                if (!(_this4.form.mobile.charAt(0) == 1)) {
+                  _context3.next = 25;
+                  break;
+                }
+
+                _context3.next = 19;
+                return _this4.callApi('post', "/api/sent/otp?mobile=".concat(_this4.form.mobile), []);
+
+              case 19:
                 res = _context3.sent;
-                // console.log(res)
-                _this3.codes = res.data;
+                _this4.isActive = false;
+                _this4.otpsent = 'Sent Again';
 
-              case 4:
+                if (res.data == 'cross limit') {
+                  _this4.notifiyGlobal("You can't sent any otp today!");
+                } else if (res.data == 'time not finished') {
+                  _this4.notifiyGlobal("Please Wait for sent again Otp");
+                } else {
+                  _this4.notifiyGlobal("Otp Successfully sent you mobile number");
+                }
+
+                _context3.next = 27;
+                break;
+
+              case 25:
+                _this4.isActive = false;
+
+                _this4.notifiyGlobal("Mobile number must be start '1'");
+
+              case 27:
               case "end":
                 return _context3.stop();
             }
@@ -2511,18 +2604,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    addcountry: function addcountry() {
-      var _this4 = this;
+    usernamecheck: function usernamecheck() {
+      var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        var res;
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                // this.form.mobile = this.form.country
-                _this4.mobileCode = _this4.form.country;
+                if (!(_this5.form.username == "")) {
+                  _context4.next = 4;
+                  break;
+                }
 
-              case 1:
+                _this5.usernameMatch = 0;
+                _context4.next = 8;
+                break;
+
+              case 4:
+                _context4.next = 6;
+                return _this5.callApi("get", "/api/count/username/check?username=".concat(_this5.form.username), []);
+
+              case 6:
+                res = _context4.sent;
+
+                if (res.data == 0) {
+                  _this5.usernameMatch = 2;
+                } else {
+                  _this5.usernameMatch = 1;
+                }
+
+              case 8:
               case "end":
                 return _context4.stop();
             }
@@ -2531,7 +2644,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     refercheck: function refercheck() {
-      var _this5 = this;
+      var _this6 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
         var res;
@@ -2539,26 +2652,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                if (!(_this5.form.ref_by == "")) {
+                if (!(_this6.form.ref_by == "")) {
                   _context5.next = 4;
                   break;
                 }
 
-                _this5.refer = 0;
+                _this6.refer = 0;
                 _context5.next = 8;
                 break;
 
               case 4:
                 _context5.next = 6;
-                return _this5.callApi("get", "/api/count/username/check?username=".concat(_this5.form.ref_by), []);
+                return _this6.callApi("get", "/api/count/username/check?username=".concat(_this6.form.ref_by), []);
 
               case 6:
                 res = _context5.sent;
 
                 if (res.data == 0) {
-                  _this5.refer = 2;
+                  _this6.refer = 2;
                 } else {
-                  _this5.refer = 1;
+                  _this6.refer = 1;
                 }
 
               case 8:
@@ -2570,72 +2683,81 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     register: function register() {
-      var _this6 = this;
+      var _this7 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+        var otpcheck;
         return _regeneratorRuntime().wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                _this6.isActive = true; // var otpcheck = await this.callApi('post',`/api/check/otp?mobile=${this.form.mobile}&otp=${this.otp}`,[]);
-                // if(otpcheck.data==0){
-                //     this.isActive = false
-                //     this.notifiyGlobal("Otp does not match!");
-                // }else{
-                // if(localStorage.getItem('dmdevice')){
-                //     this.notifiyGlobal(`This device has already have an account!`);
-                // }else{
-                // if (this.genaratedCaptcha === Number(this.captcha)) {
-                // if(this.usernameMatch!=2){
-                // this.notifiyGlobal('please Enter deferent username');
-                // }else{
+                _this7.isActive = true;
+                _context6.next = 3;
+                return _this7.callApi('post', "/api/check/otp?mobile=".concat(_this7.form.mobile, "&otp=").concat(_this7.otp), []);
 
-                if (_this6.refer != 1) {
-                  _this6.notifiyGlobal("Opps,Refer code is Invalid");
+              case 3:
+                otpcheck = _context6.sent;
+
+                if (otpcheck.data == 0) {
+                  _this7.isActive = false;
+
+                  _this7.notifiyGlobal("Otp does not match!");
                 } else {
-                  if (_this6.form.password === _this6.form.password_confirmation) {
-                    axios.post("api/auth/register", _this6.form).then(function (res) {
-                      _this6.isActive = false;
+                  // if(localStorage.getItem('dmdevice')){
+                  //     this.notifiyGlobal(`This device has already have an account!`);
+                  // }else{
+                  // if (this.genaratedCaptcha === Number(this.captcha)) {
+                  // if(this.usernameMatch!=2){
+                  // this.notifiyGlobal('please Enter deferent username');
+                  // }else{
+                  if (_this7.refer != 1) {
+                    _this7.notifiyGlobal("Opps,Refer code is Invalid");
+                  } else {
+                    if (_this7.form.password === _this7.form.password_confirmation) {
+                      _this7.form['mobileCode'] = _this7.mobileCode;
+                      _this7.form['flags'] = _this7.flags;
+                      axios.post("api/auth/register", _this7.form).then(function (res) {
+                        _this7.isActive = false;
 
-                      if (res.data == 422) {
-                        _this6.notifiyGlobal("This Phone Number Already Exist");
-                      } else if (res.data == 444) {
-                        _this6.notifiyGlobal("This device has already have an account!");
-
-                        localStorage.setItem("dmdevice", 1);
-                      } else {
-                        // console.log(res)
-                        if (res.status == 201) {
-                          _this6.notifiyGlobal("Registration Success");
+                        if (res.data == 422) {
+                          _this7.notifiyGlobal("This Phone Number Already Exist");
+                        } else if (res.data == 444) {
+                          _this7.notifiyGlobal("This device has already have an account!");
 
                           localStorage.setItem("dmdevice", 1);
-
-                          _this6.$router.push({
-                            name: "/login"
-                          });
                         } else {
-                          _this6.notifiyGlobal("Something want wrong. Please Try again or contact with admin");
-                        } // User.responseAfterLogin(res)
+                          // console.log(res)
+                          if (res.status == 201) {
+                            _this7.notifiyGlobal("Registration Success");
 
-                      } // console.log(res.data)
-                      // User.responseAfterLogin(res)
+                            localStorage.setItem("dmdevice", 1);
 
-                    })["catch"](function (error) {
-                      return _this6.errors = error.response.data.errors;
-                    });
-                  } else {
-                    _this6.notifiyGlobal("Password and Confirm password does not match");
-                  }
-                } // }
-                // } else {
-                //     this.isActive = false
-                //     this.notifiyGlobal("Captcha does not match!");
-                // }
-                // }
-                // }
+                            _this7.$router.push({
+                              name: "/login"
+                            });
+                          } else {
+                            _this7.notifiyGlobal("Something want wrong. Please Try again or contact with admin");
+                          } // User.responseAfterLogin(res)
 
+                        } // console.log(res.data)
+                        // User.responseAfterLogin(res)
 
-              case 2:
+                      })["catch"](function (error) {
+                        return _this7.errors = error.response.data.errors;
+                      });
+                    } else {
+                      _this7.notifiyGlobal("Password and Confirm password does not match");
+                    }
+                  } // }
+                  // } else {
+                  //     this.isActive = false
+                  //     this.notifiyGlobal("Captcha does not match!");
+                  // }
+                  // }
+
+                }
+
+              case 5:
               case "end":
                 return _context6.stop();
             }
@@ -3031,7 +3153,23 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "input-group mb-3"
-  }, [_vm._m(1), _vm._v(" "), _c("input", {
+  }, [_c("span", {
+    staticClass: "input-group-text py-3",
+    attrs: {
+      id: "basic-addon1"
+    },
+    on: {
+      click: _vm.showAllCountry
+    }
+  }, [_c("img", {
+    staticStyle: {
+      width: "20px"
+    },
+    attrs: {
+      src: _vm.flags,
+      alt: ""
+    }
+  }), _vm._v(_vm._s(_vm.mobileCode))]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -3049,6 +3187,9 @@ var render = function render() {
       value: _vm.form.mobile
     },
     on: {
+      click: function click($event) {
+        _vm.mobileCode == "" ? _vm.showAllCountry() : "";
+      },
       input: function input($event) {
         if ($event.target.composing) return;
 
@@ -3057,7 +3198,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-group mb-3"
-  }, [_vm._m(2), _vm._v(" "), _c("input", {
+  }, [_vm._m(1), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -3086,7 +3227,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Login")]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("router-link", {
+  }, [_vm._v("Login")]), _vm._v(" "), _c("router-link", {
     staticClass: "btn text-info w-100",
     attrs: {
       to: {
@@ -3102,7 +3243,55 @@ var render = function render() {
       Isactive: _vm.Messageactive,
       Message: _vm.Message
     }
-  })], 1);
+  }), _vm._v(" "), _vm.showCountry ? _c("div", {
+    staticClass: "countrycover"
+  }, [_c("div", {
+    staticClass: "countrylist"
+  }, [_c("div", {
+    staticClass: "countryHead",
+    on: {
+      click: _vm.closeAllCountry
+    }
+  }, [_c("span", [_vm._v("X")])]), _vm._v(" "), _c("div", {
+    staticClass: "searchcountry"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.contryname,
+      expression: "contryname"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "input Your Country name",
+      autocomplete: "off"
+    },
+    domProps: {
+      value: _vm.contryname
+    },
+    on: {
+      keyup: _vm.searchCountry,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.contryname = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("ul", _vm._l(_vm.codes, function (code, index) {
+    return _c("li", {
+      key: index,
+      on: {
+        click: function click($event) {
+          _vm.addcountry(code.idd.root + _vm.removeString(code.idd.suffixes), code.flags.png);
+        }
+      }
+    }, [_c("span", [_c("img", {
+      attrs: {
+        src: code.flags.png,
+        alt: ""
+      }
+    }), _vm._v("  " + _vm._s(code.name.common))]), _c("span", [_vm._v(_vm._s(code.idd.root) + _vm._s(_vm.removeString(code.idd.suffixes)))])]);
+  }), 0)])]) : _vm._e()], 1);
 };
 
 var staticRenderFns = [function () {
@@ -3122,32 +3311,8 @@ var staticRenderFns = [function () {
       id: "basic-addon1"
     }
   }, [_c("i", {
-    staticClass: "fa-solid fa-mobile-screen"
-  })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("span", {
-    staticClass: "input-group-text py-3",
-    attrs: {
-      id: "basic-addon1"
-    }
-  }, [_c("i", {
     staticClass: "fa-solid fa-lock"
   })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "float-end m-2"
-  }, [_c("input", {
-    staticClass: "me-1",
-    attrs: {
-      type: "checkbox"
-    }
-  }), _vm._v("Show Password\n ")]);
 }];
 render._withStripped = true;
 
@@ -3180,7 +3345,23 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "input-group mb-3"
-  }, [_vm._m(1), _vm._v(" "), _c("input", {
+  }, [_c("span", {
+    staticClass: "input-group-text py-3",
+    attrs: {
+      id: "basic-addon1"
+    },
+    on: {
+      click: _vm.showAllCountry
+    }
+  }, [_c("img", {
+    staticStyle: {
+      width: "20px"
+    },
+    attrs: {
+      src: _vm.flags,
+      alt: ""
+    }
+  }), _vm._v(_vm._s(_vm.mobileCode))]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -3189,15 +3370,21 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
-      type: "text",
+      type: "tel",
       placeholder: "Enter Your Mobile Number",
       "aria-label": "Username",
-      "aria-describedby": "basic-addon1"
+      "aria-describedby": "basic-addon1",
+      minlength: "10",
+      maxlength: "10",
+      required: ""
     },
     domProps: {
       value: _vm.form.mobile
     },
     on: {
+      click: function click($event) {
+        _vm.mobileCode == "" ? _vm.showAllCountry() : "";
+      },
       input: function input($event) {
         if ($event.target.composing) return;
 
@@ -3206,7 +3393,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-group mb-3"
-  }, [_vm._m(2), _vm._v(" "), _c("input", {
+  }, [_vm._m(1), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -3218,7 +3405,8 @@ var render = function render() {
       type: "password",
       placeholder: "Enter Your Password",
       "aria-label": "Username",
-      "aria-describedby": "basic-addon1"
+      "aria-describedby": "basic-addon1",
+      required: ""
     },
     domProps: {
       value: _vm.form.password
@@ -3232,7 +3420,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "input-group mb-3"
-  }, [_vm._m(3), _vm._v(" "), _c("input", {
+  }, [_vm._m(2), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -3244,7 +3432,8 @@ var render = function render() {
       type: "password",
       placeholder: "Confirm Password",
       "aria-label": "Username",
-      "aria-describedby": "basic-addon1"
+      "aria-describedby": "basic-addon1",
+      required: ""
     },
     domProps: {
       value: _vm.form.password_confirmation
@@ -3256,12 +3445,50 @@ var render = function render() {
         _vm.$set(_vm.form, "password_confirmation", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("button", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "input-group mb-3"
+  }, [_vm._m(3), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.otp,
+      expression: "otp"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "SMS Code",
+      required: ""
+    },
+    domProps: {
+      value: _vm.otp
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.otp = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn fw-bold rounded-0",
+    staticStyle: {
+      background: "#f1f1f1",
+      color: "#333",
+      border: "2px solid var(--defaltColor)",
+      width: "30%"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.sentOtp
+    }
+  }, [_vm._v(_vm._s(_vm.otpsent))])]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-danger w-100 py-3",
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Confirm")]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("router-link", {
+  }, [_vm._v("Confirm")]), _vm._v(" "), _c("router-link", {
     staticClass: "btn text-info w-100",
     attrs: {
       to: {
@@ -3278,7 +3505,55 @@ var render = function render() {
       Isactive: _vm.Messageactive,
       Message: _vm.Message
     }
-  })], 1);
+  }), _vm._v(" "), _vm.showCountry ? _c("div", {
+    staticClass: "countrycover"
+  }, [_c("div", {
+    staticClass: "countrylist"
+  }, [_c("div", {
+    staticClass: "countryHead",
+    on: {
+      click: _vm.closeAllCountry
+    }
+  }, [_c("span", [_vm._v("X")])]), _vm._v(" "), _c("div", {
+    staticClass: "searchcountry"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.contryname,
+      expression: "contryname"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "input Your Country name",
+      autocomplete: "off"
+    },
+    domProps: {
+      value: _vm.contryname
+    },
+    on: {
+      keyup: _vm.searchCountry,
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.contryname = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("ul", _vm._l(_vm.codes, function (code, index) {
+    return _c("li", {
+      key: index,
+      on: {
+        click: function click($event) {
+          _vm.addcountry(code.idd.root + _vm.removeString(code.idd.suffixes), code.flags.png);
+        }
+      }
+    }, [_c("span", [_c("img", {
+      attrs: {
+        src: code.flags.png,
+        alt: ""
+      }
+    }), _vm._v("  " + _vm._s(code.name.common))]), _c("span", [_vm._v(_vm._s(code.idd.root) + _vm._s(_vm.removeString(code.idd.suffixes)))])]);
+  }), 0)])]) : _vm._e()], 1);
 };
 
 var staticRenderFns = [function () {
@@ -3298,18 +3573,6 @@ var staticRenderFns = [function () {
       id: "basic-addon1"
     }
   }, [_c("i", {
-    staticClass: "fa-solid fa-mobile-screen"
-  })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("span", {
-    staticClass: "input-group-text py-3 py-3",
-    attrs: {
-      id: "basic-addon1"
-    }
-  }, [_c("i", {
     staticClass: "fa-solid fa-lock"
   })]);
 }, function () {
@@ -3328,14 +3591,14 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "float-end m-2"
-  }, [_c("input", {
-    staticClass: "me-1",
+  return _c("span", {
+    staticClass: "input-group-text py-3 py-3",
     attrs: {
-      type: "checkbox"
+      id: "basic-addon1"
     }
-  }), _vm._v("Show Password\n ")]);
+  }, [_c("i", {
+    staticClass: "fa-solid fa-lock"
+  })]);
 }];
 render._withStripped = true;
 
@@ -15609,7 +15872,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.languagechange[data-v-2a1c1b9c] {\n    width: 100px;\n    float: right;\n}\nsection.vh-100[data-v-2a1c1b9c] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\n    border: 1px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\n    border: 1px solid green !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\n    color: green !important;\n}\n.divider[data-v-2a1c1b9c]:after,\n.divider[data-v-2a1c1b9c]:before {\n    content: \"\";\n    flex: 1;\n    height: 1px;\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\n*[data-v-2a1c1b9c]:focus {\n    outline: none\n}\n\n/* .form{\n  width: 500px;\n  margin: 0 auto;\n  margin-top: 150px;\n  font-family: sans-serif;\n  background: #fff\n} */\n.form-item[data-v-2a1c1b9c] {\n    position: relative;\n    margin-bottom: 15px\n}\n.form-item input[data-v-2a1c1b9c] {\n    display: block;\n    width: 100%;\n    height: 40px;\n    background: transparent;\n    border: solid 1px #ccc;\n    transition: all .3s ease;\n    padding: 0 15px\n}\n.form-item input[data-v-2a1c1b9c]:focus {\n    border-color: blue\n}\n.form-item label[data-v-2a1c1b9c] {\n    position: absolute;\n    cursor: text;\n    z-index: 2;\n    top: 13px;\n    left: 10px;\n    font-size: 12px;\n    font-weight: bold;\n    background: #fff;\n    padding: 0 10px;\n    color: #999;\n    transition: all .3s ease\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\n.form-item input:valid+label[data-v-2a1c1b9c] {\n    font-size: 11px;\n    top: -5px\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\n    color: blue\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.languagechange[data-v-2a1c1b9c] {\n    width: 100px;\n    float: right;\n}\nsection.vh-100[data-v-2a1c1b9c] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 100%;\n}\n.blurerror input[data-v-2a1c1b9c] {\n    border: 1px solid red !important;\n}\n.blurerror label[data-v-2a1c1b9c] {\n    color: red !important;\n}\n.blursuccess input[data-v-2a1c1b9c] {\n    border: 1px solid green !important;\n}\n.blursuccess label[data-v-2a1c1b9c] {\n    color: green !important;\n}\n.divider[data-v-2a1c1b9c]:after,\n.divider[data-v-2a1c1b9c]:before {\n    content: \"\";\n    flex: 1;\n    height: 1px;\n    background: #eee;\n}\n*[data-v-2a1c1b9c],\n*[data-v-2a1c1b9c]:focus {\n    outline: none\n}\n\n/* .form{\n  width: 500px;\n  margin: 0 auto;\n  margin-top: 150px;\n  font-family: sans-serif;\n  background: #fff\n} */\n.form-item[data-v-2a1c1b9c] {\n    position: relative;\n    margin-bottom: 15px\n}\n.form-item input[data-v-2a1c1b9c] {\n    display: block;\n    width: 100%;\n    height: 40px;\n    background: transparent;\n    border: solid 1px #ccc;\n    transition: all .3s ease;\n    padding: 0 15px\n}\n.form-item input[data-v-2a1c1b9c]:focus {\n    border-color: blue\n}\n.form-item label[data-v-2a1c1b9c] {\n    position: absolute;\n    cursor: text;\n    z-index: 2;\n    top: 13px;\n    left: 10px;\n    font-size: 12px;\n    font-weight: bold;\n    background: #fff;\n    padding: 0 10px;\n    color: #999;\n    transition: all .3s ease\n}\n.form-item input:focus+label[data-v-2a1c1b9c],\n.form-item input:valid+label[data-v-2a1c1b9c] {\n    font-size: 11px;\n    top: -5px\n}\n.form-item input:focus+label[data-v-2a1c1b9c] {\n    color: blue\n}\n.countrycover[data-v-2a1c1b9c] {\n    width: 100%;\n    height: 100%;\n    position: fixed;\n    background: #0000009c;\n    top: 0;\n    left: 0;\n}\n.countrylist[data-v-2a1c1b9c] {\n    position: fixed;\n    top: 39%;\n    left: 0;\n    width: 100%;\n    /* margin: 29px; */\n    background: #ffffff;\n    overflow: auto;\n    border-radius: 12px;\n}\n.countrylist ul[data-v-2a1c1b9c] {\n    list-style: none;\n    overflow: auto;\n    height: 226px;\n    padding:0;\n}\n.countrylist ul li[data-v-2a1c1b9c] {\n    padding: 5px 27px;\n    border-bottom: 1px solid #6a6a6a;\n    cursor: pointer;\n    display: flex;\n    justify-content: space-between;\n}\n.countrylist ul li[data-v-2a1c1b9c]:hover {\n background: #c1c1c1;\n}\n.countrylist ul li img[data-v-2a1c1b9c] {\n    width:20px;\n}\n.countryHead[data-v-2a1c1b9c] {\n    border-bottom: 1px solid #666666;\n    padding: 11px 20px;\n    text-align: right;\n}\n.countryHead span[data-v-2a1c1b9c] {\n    width: 10px;\n    height: 10px;\n    background: red;\n    padding: 3px 7px;\n    border-radius: 50%;\n    color: white;\n    cursor: pointer;\n}\n.searchcountry input[data-v-2a1c1b9c] {\n    width: 95%;\n    margin: 8px auto;\n    border: 1px solid black;\n}\n\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15633,7 +15896,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.languagechange[data-v-1b4207c0] {\n    width: 100px;\n    float: right;\n}\nbutton.button[data-v-1b4207c0] {\n    padding: 7px 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.languagechange[data-v-1b4207c0] {\n    width: 100px;\n    float: right;\n}\nbutton.button[data-v-1b4207c0] {\n    padding: 7px 5px;\n}\n.countrycover[data-v-1b4207c0] {\n    width: 100%;\n    height: 100%;\n    position: fixed;\n    background: #0000009c;\n    top: 0;\n    left: 0;\n}\n.countrylist[data-v-1b4207c0] {\n    position: fixed;\n    top: 39%;\n    left: 0;\n    width: 100%;\n    /* margin: 29px; */\n    background: #ffffff;\n    overflow: auto;\n    border-radius: 12px;\n}\n.countrylist ul[data-v-1b4207c0] {\n    list-style: none;\n    overflow: auto;\n    height: 226px;\n    padding:0;\n}\n.countrylist ul li[data-v-1b4207c0] {\n    padding: 5px 27px;\n    border-bottom: 1px solid #6a6a6a;\n    cursor: pointer;\n    display: flex;\n    justify-content: space-between;\n}\n.countrylist ul li[data-v-1b4207c0]:hover {\n background: #c1c1c1;\n}\n.countrylist ul li img[data-v-1b4207c0] {\n    width:20px;\n}\n.countryHead[data-v-1b4207c0] {\n    border-bottom: 1px solid #666666;\n    padding: 11px 20px;\n    text-align: right;\n}\n.countryHead span[data-v-1b4207c0] {\n    width: 10px;\n    height: 10px;\n    background: red;\n    padding: 3px 7px;\n    border-radius: 50%;\n    color: white;\n    cursor: pointer;\n}\n.searchcountry input[data-v-1b4207c0] {\n    width: 95%;\n    margin: 8px auto;\n    border: 1px solid black;\n}\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
