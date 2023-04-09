@@ -3,9 +3,11 @@
 
 
 
-        <main class="background" style="margin-bottom: 273px;">
+        <main class="background" style="padding: 0 15px !important;">
+<!--
         <h2 class="title">Invite friends</h2>
-        <p class="one">invite friends to join and earn rewards</p>
+        <p class="one">invite friends to join and earn rewards</p> -->
+
         <!-- <button class="ivite-btn border-0">invitation rules</button> -->
 
 

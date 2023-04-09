@@ -19,26 +19,26 @@
         <div style="padding: 0 12px;
         background: linear-gradient(1turn, rgb(241, 243, 248), rgb(151 127 247) 58%, #B000FF);
     ">
-            <div class="d-flex justify-content-between">
+            <!-- <div class="d-flex justify-content-between">
                 <p class="ms-3 balance">Balance</p>
                 <p class="fs-4 text-white">{{ parseFloat(row.user.balance).toFixed(2) }}</p>
-            </div>
+            </div> -->
             <hr class="text-bg-dark" />
             <div class="bg-white py-3 rounded-4 shadow-sm">
                 <p class="mb-0 text-center" style="color: #ff883a;">Please Select the ammount</p>
                 <div class="ammount-select">
-                    <p class="amount" :class="{ 'active':form.amount == 500 }" @click="form.amount = 500">500</p>
-                    <p class="amount" :class="{ 'active':form.amount == 1000 }" @click="form.amount = 1000">1000</p>
-                    <p class="amount" :class="{ 'active':form.amount == 2500 }" @click="form.amount = 2500">2500</p>
-                    <p class="amount" :class="{ 'active':form.amount == 6000 }" @click="form.amount = 6000">6000</p>
-                    <p class="amount" :class="{ 'active':form.amount == 16000 }" @click="form.amount = 16000">16000</p>
+                    <p class="amount" :class="{ 'active':form.amount == 550 }" @click="form.amount = 550">550</p>
+                    <p class="amount" :class="{ 'active':form.amount == 1050 }" @click="form.amount = 1050">1050</p>
+                    <p class="amount" :class="{ 'active':form.amount == 2550 }" @click="form.amount = 2550">2550</p>
+                    <p class="amount" :class="{ 'active':form.amount == 6050 }" @click="form.amount = 6050">6050</p>
+                    <p class="amount" :class="{ 'active':form.amount == 10000 }" @click="form.amount = 10000">10000</p>
                     <p class="amount" :class="{ 'active':form.amount == 25000 }" @click="form.amount = 25000">25000</p>
 
                 </div>
                 <div
                     class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm">
                     <input class="border-0" maxlength="140" v-model="form.amount" step="0.000000000000000001" enterkeyhint="done"
-                        pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" />
+                        pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" disabled readonly />
                     <button type="submit" class="money-btn">Recharge</button>
                 </div>
             </div>

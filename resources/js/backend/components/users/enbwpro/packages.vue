@@ -28,7 +28,7 @@
           </div>
           <a class="rent" href="javascript:void(0)" @click="upgrade(packag)">Upgrade Now</a>
       </div>
-      <p class="description">Note: Equipment purchases are valid for {{ packag.packageDuration }} days and will generate ≈ {{ packag.packageEarn }}BDT per day for you. You can withdraw cash to your account at any time. This machine will earn a total of {{ packag.packageEarn*packag.packageDuration }}BDT in {{ packag.packageDuration }} days</p>
+      <p class="description" style="margin-top: 5px !important;">Note: Equipment purchases are valid for {{ packag.packageDuration }} days and will generate ≈ {{ packag.packageEarn }}BDT per day for you. You can withdraw cash to your account at any time. This machine will earn a total of {{ packag.packageEarn*packag.packageDuration }}BDT in {{ packag.packageDuration }} days</p>
     </div>
 
 

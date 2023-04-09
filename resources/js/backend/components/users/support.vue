@@ -22,7 +22,7 @@
                     <div class="col-md-4" v-if="settings.telesupport2">
                         <a :href="settings.telesupport2" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: white;"></i> <br/>
-                            <span style="color:white">Telegram <br/> Survice</span>
+                            <span style="color:white">Telegram <br/>Customer Service</span>
                         </a>
                     </div>
 
@@ -30,7 +30,7 @@
                     <div class="col-md-4" v-if="settings.telesupport3">
                         <a :href="settings.telesupport3" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: white;"></i> <br/>
-                            <span style="color:white">Telegram <br/> Survice</span>
+                            <span style="color:white">Telegram <br/>Customer Service</span>
                         </a>
                     </div>
                 </div>
