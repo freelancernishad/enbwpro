@@ -64,22 +64,22 @@
 
   </header>
   <main>
-    <section class="d-flex justify-content-between mx-4 py-4 text-center section-div">
-        <router-link :to="{name:'Recharge'}" class="text-dark">
-            <i class="fa-solid fa-rotate-right"></i>
+    <section class="d-flex justify-content-around mx-4 py-4 text-center section-div">
+        <router-link :to="{name:'Recharge'}" class="text-dark homePageIcon">
+            <i class="fa-solid fa-credit-card" style="color: #F78721;"></i>
             <p>Recharge</p>
         </router-link>
-        <router-link :to="{name:'withdraw'}" class="text-dark" >
-            <i class="fa-solid fa-arrow-down"></i>
+        <router-link :to="{name:'withdraw'}" class="text-dark homePageIcon" >
+            <i class="fa-solid fa-briefcase" style="    color: #9d00ff;"></i>
             <p>Withdrawals</p>
         </router-link>
-        <span @click="dailyCheckIn" class="text-dark">
-            <i class="fa-regular fa-circle-check"></i>
+        <span @click="dailyCheckIn" class="text-dark homePageIcon">
+            <i class="fa-solid fa-circle-check" style="color: #0066ff;"></i>
             <p>Check In</p>
         </span>
 
-        <router-link :to="{name:'noreward'}" class="text-dark">
-            <i class="fa-solid fa-circle-exclamation"></i>
+        <router-link :to="{name:'noreward'}" class="text-dark homePageIcon">
+            <i class="fa-solid fa-medal" style="color: #268300;"></i>
             <p>Invest Info</p>
         </router-link>
     </section>
@@ -190,4 +190,12 @@ export default {
     color: var(--defaltColor);
 }
 
+.homePageIcon i {
+    font-size: 35px;
+    margin-bottom: 9px;
+}
+
+.homePageIcon {
+    font-size: 14px;
+}
 </style>
