@@ -15,18 +15,18 @@
         font-weight: 700;">OnePay</span>
                 </div>
                 <div class="text-end w-50" style="font-size: 24px;">
-                    <b>{{ time }} </b>
+                    <b style="font-family: auto;">{{ time }} </b>
 
                 </div>
 
             </div>
             <div>
                 <p class="bg-warning mx-3 ps-4 py-2 rounded-top-5 pt-3"
-                    style="margin-bottom: 9px;;font-size: 14px;border-top-left-radius: 2em!important; border-top-right-radius: 2em !important;">
+                    style="margin-bottom: 9px;;font-size: 14px;border-top-left-radius: 2em!important; border-top-right-radius: 2em !important;font-family: auto;background-color: #FFD530!important;">
                     অর্ডার আইডি : {{ form.orderid }}</p>
                 <div>
                     <p class="bg-warning fw-medium mx-3 pt-2 py-5 rounded-bottom-5 text-center"
-                        style="border-bottom-right-radius: 2rem !important;border-bottom-left-radius: 2rem !important;font-size: 28px !important;font-weight: 700;">
+                        style="border-bottom-right-radius: 2rem !important;border-bottom-left-radius: 2rem !important;font-size: 28px !important;font-weight: 700;font-family: auto;background-color: #FFD530!important;">
                         {{ form.amount }} TK</p>
                 </div>
 
@@ -34,7 +34,7 @@
             <div class="mx-4 mt-3">
                 <p class="ms-1" style="font-size: 14px;">আপনার একাউন্ট</p>
                 <input class="form-control mb-3 onepaynumberInput" type="number" v-model="form.sender"
-                    placeholder="016xxxxx345" minlength="11" maxlength="11" required>
+                    placeholder="016xxxxx345" minlength="11" maxlength="11" style="font-family: auto;" required>
 
                 <small style="color: white;
         background: #000000a8;
