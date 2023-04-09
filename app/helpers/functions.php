@@ -163,18 +163,22 @@ if($width=='' && $height==''){
 
  function tasklevelCommistion($level, $amount)
 {
+    $amount = intval($amount);
     $level = Level::where(['name' => $level])->first();
-    $commisition = $level->task_commisition;
+    $commisition = intval($level->task_commisition);
     return   $commisitionAmount = (($amount * $commisition) / 100);
 }
  function levelCommistion($level, $amount)
 {
+    $amount = intval($amount);
     $level = Level::where(['name' => $level])->first();
-    $commisition = $level->comission;
+    $commisition = intval($level->comission);
     return   $commisitionAmount = (($amount * $commisition) / 100);
 }
  function balanceIncrease($old, $new)
 {
+    $old = intval($old);
+    $new = intval($new);
     if ($old == '' || $old == null) $old = 0;
     if ($new == '' || $new == null) $new = 0;
     return number_format($old + $new, 2, '.', '');
@@ -182,6 +186,8 @@ if($width=='' && $height==''){
 
  function balanceDecrease($old, $new)
 {
+    $old = intval($old);
+    $new = intval($new);
     if ($old == '' || $old == null) $old = 0;
     if ($new == '' || $new == null) $new = 0;
     return number_format($old - $new, 2, '.', '');
