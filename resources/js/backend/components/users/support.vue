@@ -6,7 +6,7 @@
                     <div class="col-md-4" v-if="settings.telegroup">
                         <a :href="settings.telegroup" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: white;"></i> <br/>
-                            <span style="color:white">টেলিগ্রাম<br/> গ্রুপ</span>
+                            <span style="color:white">Telegram <br/> Group</span>
                         </a>
                     </div>
 
@@ -14,7 +14,7 @@
                     <div class="col-md-4" v-if="settings.telesupport1">
                         <a :href="settings.telesupport1" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: white;"></i> <br/>
-                            <span style="color:white">টেলিগ্রাম<br/> চ্যানেল</span>
+                            <span style="color:white">Telegram <br/> Channel</span>
                         </a>
                     </div>
 
@@ -22,7 +22,7 @@
                     <div class="col-md-4" v-if="settings.telesupport2">
                         <a :href="settings.telesupport2" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: white;"></i> <br/>
-                            <span style="color:white">টেলিগ্রাম<br/> সাপোর্ট</span>
+                            <span style="color:white">Telegram <br/> Survice</span>
                         </a>
                     </div>
 
@@ -30,7 +30,7 @@
                     <div class="col-md-4" v-if="settings.telesupport3">
                         <a :href="settings.telesupport3" class="d-block text-center profileLinks">
                             <i class="fa fa-telegram" style="color: white;"></i> <br/>
-                            <span style="color:white">টেলিগ্রাম<br/> সাপোর্ট</span>
+                            <span style="color:white">Telegram <br/> Survice</span>
                         </a>
                     </div>
                 </div>
