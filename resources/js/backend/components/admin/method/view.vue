@@ -181,8 +181,8 @@ export default {
         async onSubmit(){
             this.proloader = true
             var id = this.$route.params.id;
-            this.form['balanceverify'] = this.balanceverify;
-            this.form['AccountBalance'] = this.AccountBalance;
+            // this.form['balanceverify'] = this.balanceverify;
+            // this.form['AccountBalance'] = this.AccountBalance;
             var res = await this.callApi('put', `/api/admin/withdraw/gateway/${id}`, this.form);
              Notification.customSuccess(`Your data has been Updated`);
              this.$router.push({name:'withdrawlMethods'});

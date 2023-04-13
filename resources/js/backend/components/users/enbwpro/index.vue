@@ -100,6 +100,19 @@
 
 
 
+  <div class="noticePopup" v-if="noticePop">
+    <div class="popcontiner">
+
+        <div class="PopHead"><span @click="noticePop=false">X</span></div>
+        <div class="nPopBody">
+            Notice 1 <br>
+            Notice 1 <br>
+            Notice 1 <br>
+            Notice 1 <br>
+            Notice 1 <br>
+        </div>
+    </div>
+  </div>
 
 
     <Preload :Isactive="isActive"/>
@@ -116,6 +129,7 @@
 export default {
     data(){
         return {
+            noticePop:true,
             isActive:false,
             PackPurchase:false,
             Messageactive:false,
@@ -197,5 +211,43 @@ export default {
 
 .homePageIcon {
     font-size: 14px;
+}
+
+.noticePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000000b5;
+    height: 100%;
+    z-index: 99;
+}
+.popcontiner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #ffffff00;
+    width: 300px;
+    max-width: 300px;
+}
+
+.PopHead {
+    color: white;
+    text-align: right;
+    padding: 0 11px;
+    margin-bottom: 5px;
+}
+
+.nPopBody {
+    background: white;
+    padding: 11px 6px;
+    border-radius: 11px;
+}
+.PopHead span {
+    padding: 3px 6px;
+    background: #f30707c2;
+    border-radius: 50%;
+    cursor: pointer;
 }
 </style>

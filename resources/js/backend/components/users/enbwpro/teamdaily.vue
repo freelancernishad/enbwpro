@@ -6,20 +6,18 @@
         </header>
 
 
-        <div class="bigbox">
+        <!-- <div class="bigbox">
             <div style="display: flex;">
                 <div class="box">
                     <div class="one">Recharge today</div>
                     <div class="three defaltColor">0.00</div>
-                    <!-- <div style="margin-top: 5px; font-size: 12px; color: rgb(153, 153, 153); text-align: center;">23/03/19</div> -->
                 </div>
                 <div class="box" style="margin-left: 10px;">
                     <div class="one">Recharge count</div>
                     <div class="three defaltColor">0</div>
-                    <!-- <div style="margin-top: 5px; font-size: 12px; color: rgb(153, 153, 153); text-align: center;">23/03/19</div> -->
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 

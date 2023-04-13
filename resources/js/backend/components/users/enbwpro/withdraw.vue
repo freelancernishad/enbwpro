@@ -85,7 +85,8 @@
             <div class="bg-white py-3 rounded-4 shadow-sm">
 
 
-                    <input maxlength="140" style="width:99%;" v-model="row.user.Bank_account" readonly disabled step="0.000000000000000001" enterkeyhint="done" pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm" />
+                <!-- <span>{{ Bank_account }}</span> -->
+                    <input  style="width:99%;" v-model="Bank_account" readonly disabled  type="text" placeholder="" class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm" />
 
 
                     <input maxlength="140" style="width:99%;" v-model="form.amount" step="0.000000000000000001" enterkeyhint="done" pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm" />
@@ -172,6 +173,7 @@ export default {
             gateways: {},
             lists: {},
             Bank_Name:null,
+            Bank_account:'',
             form: {
                 method: '',
                 amount: '',
@@ -258,7 +260,7 @@ export default {
 
 
                         }else if(res.data==445){
-                            this.notifiy('Falied! You can windraw one time in a day!.');
+                            this.notifiy('Falied! You can withdraw one time in a day!.');
                         }else if(res.data==444){
                             this.notifiy('Falied! withdraw cant be proccess.');
                         }else{
@@ -281,6 +283,12 @@ export default {
         this.form.method = this.row.user.Bank_Name
         this.form.recieved_number = this.row.user.Bank_account
         this.charageCount();
+
+        setTimeout(() => {
+
+            this.Bank_account = this.row.user.Bank_account.substring(0, 3)+'******'+this.row.user.Bank_account.substring(9, 11);
+        }, 1000);
+
 
 
     },

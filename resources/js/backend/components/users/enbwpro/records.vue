@@ -12,9 +12,9 @@
             <p>{{ textConvert(list.remark) }}</p>
             <p>{{ parseFloat(list.amount).toFixed(2) }} BDT</p>
         </div>
-        <div class="description lh-1 px-2">
+        <div class="description lh-1 px-2" style="margin-top: 5px !important;">
             <p> <i class="fa-solid fa-circle"></i> User ID: {{ list.users.username }}</p>
-            <p> <i class="fa-solid fa-circle"></i> {{ dateformatglobal(list.created_at)[6] }}</p>
+            <p class="mt-2"> <i class="fa-solid fa-circle"></i> {{ dateformatglobal(list.created_at)[6] }}</p>
         </div>
     </div>
 
