@@ -64,7 +64,7 @@
 
   </header>
   <main>
-    <section class="d-flex justify-content-around mx-4 py-4 text-center section-div">
+    <section class="d-flex justify-content-around mx-4 py-4 text-center section-div" style="    grid-gap: 10px;">
         <router-link :to="{name:'Recharge'}" class="text-dark homePageIcon">
             <i class="fa-solid fa-credit-card" style="color: #F78721;"></i>
             <p>Recharge</p>
@@ -211,7 +211,7 @@ export default {
 }
 
 .homePageIcon {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .noticePopup {
