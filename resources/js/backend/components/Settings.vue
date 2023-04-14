@@ -140,7 +140,7 @@
                                         </div>
                                     </div>
 
-<!--
+
                                     <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label col-form-label">Slider 1
@@ -193,7 +193,7 @@
                                             <b-img thumbnail fluid :src="form.slide4" alt="Image 3"></b-img>
                                             </label>
                                     </div>
-                                </div> -->
+                                </div>
 
 
                                     <div class="col-md-6">

@@ -1,7 +1,12 @@
 <template>
     <div>
 
-        <header>
+    <section id="slider">
+        <img width="100%" :src="slideimage" alt="">
+    </section>
+
+
+        <!-- <header>
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -24,7 +29,7 @@
             </div>
 
 
-        </header>
+        </header> -->
 
 
         <header class="defaltColorBg py-2 rounded-bottom-4 text-white">
@@ -128,6 +133,27 @@
 
 <script>
 export default {
+    created() {
+
+        setTimeout(() => {
+
+            if(this.settings.slide1)this.slider.push(this.settings.slide1);
+            if(this.settings.slide2)this.slider.push(this.settings.slide2);
+            if(this.settings.slide3)this.slider.push(this.settings.slide3);
+            if(this.settings.slide4)this.slider.push(this.settings.slide4);
+
+
+            var indexx = 1;
+        this.slideimage = this.slider[0]
+        setInterval(() => {
+            if(indexx===this.slider.length)indexx = 0;
+            // console.log(indexx);
+            this.slideimage = this.slider[indexx]
+            indexx++
+        }, 8000);
+    }, 3000);
+
+    },
     data(){
         return {
             noticePop:true,
@@ -138,6 +164,8 @@ export default {
 
             datas:{},
             PopupTitle:'Are you sure to purchase this product?',
+            slideimage:'',
+            slider:[],
         }
     },
     methods: {

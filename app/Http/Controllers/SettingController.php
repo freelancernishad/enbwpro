@@ -82,11 +82,30 @@ class SettingController extends Controller
     public function update(Request $request, Setting $setting)
     {
 
-         $data = $request->except(['bkash','nagad','rocket']);
+         $data = $request->except(['bkash','nagad','rocket','slide1','slide2','slide3','slide4']);
 
      $data['bkash'] = json_encode($request->bkash);
      $data['nagad'] = json_encode($request->nagad);
      $data['rocket'] = json_encode($request->rocket);
+
+     $slide1Count =  count(explode(';',$request->slide1));
+     $slide2Count =  count(explode(';',$request->slide2));
+     $slide3Count =  count(explode(';',$request->slide3));
+     $slide4Count =  count(explode(';',$request->slide4));
+
+
+         if($slide1Count>1){
+             $data['slide1'] =  fileupload($request->slide1,"slider/",1000,450);
+         }
+         if($slide2Count>1){
+             $data['slide2'] =  fileupload($request->slide2,"slider/",1000,450);
+         }
+         if($slide3Count>1){
+             $data['slide3'] =  fileupload($request->slide3,"slider/",1000,450);
+         }
+         if($slide4Count>1){
+             $data['slide4'] =  fileupload($request->slide4,"slider/",1000,450);
+         }
 
 
 

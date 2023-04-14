@@ -25,7 +25,7 @@
 
     <div data-v-464536f2="" class="flex_row_left" style="    position: absolute;
     top: 100px;
-    right: 25%;
+    right: 18%;
     border: 1px solid rgb(206, 206, 206);
     border-radius: 6px;
     width: 60px;
