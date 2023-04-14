@@ -84,7 +84,7 @@
         </router-link>
 
         <router-link :to="{name:'companyPro'}" class="text-dark homePageIcon">
-            <i class="fa-solid fa-medal" style="color: #268300;"></i>
+            <i class="fa-solid fa-address-card" style="color: #c33771;"></i>
             <p>Company Profile</p>
         </router-link>
 
