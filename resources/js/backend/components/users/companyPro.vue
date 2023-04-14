@@ -2,31 +2,63 @@
     <div>
 
 
-  <section id="topbar">
-        <div class="title">
-            <!-- <a href="javascript:void(0)" @click="$router.go(-1)" ><i class="fa fa-angle-left"></i></a>
-            <p>{{ $t('Company_Profile.value') }}</p>
-            <LanguageComponent/> -->
+  <section id="topbar" class="defaltColorBg">
+        <div class="text-center text-white py-3">
+
+            <p>Company Profile</p>
+
         </div>
+
     </section>
 
-    <section class="intro profileBg mb-5" >
+    <section class="intro profileBg mb-5" style="margin-top: 0px;" >
         <div class="container-fluid">
             <p>
 
-                We are working on projects to help promote platform e-commerce and increase e-commerce sales and exposure. So we need more dedicated IP to work. When we complete the order task issued by Platform E-Commerce, Platform E-Commerce will pay us a commission, which is our source of income.<br/><br/>
+                United Eib-3s is a company that innovates basic technology, and shares innovation with the entire industry through technology licensing model, and becomes a strong support for global innovation, competition and customer development.
+                <br/><br/>
 
-                Now let's introduce the rules of the e-commerce ordering task. Actions taken on orders placed by e-merchants are determined based on our credit to the DM MARTE account. <br/><br/>
+                progress <br/>
+                gradual development <br/>
+                expansion <br/>
+                enhancement <br/>
+                incremental <br/>
+                Amplification <br/>
+                Extreme improvement <br/>
+                progress <br/>
+                development <br/>
+                development <br/>
+                evolution <br/>
+                lower <br/>
+                nutrition <br/>
+                the epithet <br/>
+                rising <br/>
+                stimulus <br/>
+                rescue <br/>
+                expression <br/>
+                excitement <br/>
+                development <br/>
+                consequence <br/>
 
-                Many new members see it as an investment platform. But I tell you, this is not an investment platform! Since the principal deposited in your DM MARTE account can be withdrawn at any time, you can withdraw the principal to your bank account at any time. Quest deposits will only increase your daily quest income. So it is not an investment. <br/><br/>
+                <br/><br/>
+
+                Growth Started in 1995, this model is the foundation of United States' core mission, values, and culture, leading to strong market growth and benefiting United Eib-3s customers.
+
+                 <br/><br/>
+
+                 United Eib-3s is a company that innovates fundamental technologies, and shares innovations with the entire solar industry through a technology licensing model, and becomes a strong support for customers and partners for global innovation, competition and development.
+
+                <br/><br/>
+                United Started in 1995, this model is the foundation of Qualcomm's core mission, values ​​and culture, which drives strong market growth and benefits customers.
 
 
-                Thanks to your deposited capital and the income you receive, you can withdraw our funds at any time, keeping them safe. Therefore, DM MARTE company is safe, reliable and trustworthy!
-Expires on January 20, 2024 <br/><br/>
+                <br/><br/>
+                It is a long-term institution United Eib-3s.
+                <br/><br/>
 
 
 
-<img :src="$asseturl+'comp.jpeg'" width="100%" alt="">
+                <img :src="$asseturl+'comPro.jpg'" width="100%" alt="">
 
 
 
