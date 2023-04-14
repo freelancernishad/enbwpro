@@ -22,7 +22,7 @@
             </div>
             <div>
                 <p class="bg-warning mx-3 ps-4 py-2 rounded-top-5 pt-3"
-                    style="margin-bottom: 4px;;font-size: 14px;border-top-left-radius: 2em!important; border-top-right-radius: 2em !important;font-family: auto;background-color: #FFD530!important;">
+                    style="margin-bottom: 3px;font-size: 14px;border-top-left-radius: 2em!important; border-top-right-radius: 2em !important;font-family: auto;background-color: #FFD530!important;">
                     অর্ডার আইডি : {{ form.orderid }}</p>
                 <div>
                     <p class="bg-warning fw-medium mx-3 pt-2 py-5 rounded-bottom-5 text-center"

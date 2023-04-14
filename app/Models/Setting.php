@@ -11,6 +11,7 @@ class Setting extends Model
 
     protected $fillable = [
         'notice',
+        'popupNotice',
         'new_regitration',
         'refer_bonus',
         'ref_count',

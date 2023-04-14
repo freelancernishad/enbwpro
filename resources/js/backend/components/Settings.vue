@@ -25,6 +25,15 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label for="">Poup Notice</label>
+                                            <vue-editor v-model="form.popupNotice" />
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                             <label for="">Notice</label>
                                             <!-- <vue-editor v-model="form.notice"></vue-editor> -->
                                             <textarea v-model="form.notice" class="form-control" style="resize:none;height:100px;border: 1px solid #262528;"> </textarea>
@@ -232,6 +241,7 @@ export default {
     },data() {
         return {
             form:{
+                popupNotice:'',
                 notice:'',
                 new_regitration:'',
                 refer_bonus:'',

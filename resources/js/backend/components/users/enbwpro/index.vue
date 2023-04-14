@@ -104,13 +104,7 @@
     <div class="popcontiner">
 
         <div class="PopHead"><span @click="noticePop=false">X</span></div>
-        <div class="nPopBody">
-            Notice 1 <br>
-            Notice 1 <br>
-            Notice 1 <br>
-            Notice 1 <br>
-            Notice 1 <br>
-        </div>
+        <div class="nPopBody" v-html="settings.popupNotice"></div>
     </div>
   </div>
 

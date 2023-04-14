@@ -82,7 +82,7 @@ class SettingController extends Controller
     public function update(Request $request, Setting $setting)
     {
 
-        $data = $request->except(['bkash','nagad','rocket']);
+         $data = $request->except(['bkash','nagad','rocket']);
 
      $data['bkash'] = json_encode($request->bkash);
      $data['nagad'] = json_encode($request->nagad);

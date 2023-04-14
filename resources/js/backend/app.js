@@ -56,7 +56,16 @@ Vue.use(VueYoutube)
 // require( 'datatables.net-searchbuilder-dt' );
 // require( 'datatables.net-searchpanes-dt' );
 // require( 'datatables.net-select-dt' );
+
 // require( 'datatables.net-staterestore-dt' );
+
+
+import Vue2Editor from "vue2-editor";
+Vue.use(Vue2Editor);
+
+
+
+
 import Multiselect from 'vue-multiselect'
 Vue.component('multiselect', Multiselect)
 
