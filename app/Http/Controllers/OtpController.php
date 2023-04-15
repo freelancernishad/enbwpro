@@ -60,7 +60,7 @@ class OtpController extends Controller
         ];
         Otp::create($data);
 
-        $message = "Your Sun Energy verification code is $otp.";
+        $message = "United-Eib-3s verification code is $otp.";
         SmsNocSmsSend($message,$mobile);
 
 
