@@ -123,7 +123,7 @@
 
                 <button style="
         height: 53px;
-        background: rgb(167, 159, 159);
+        /* background: rgb(167, 159, 159); */
         box-shadow: rgba(180, 184, 204, 0.5) 0px 3px 6px;
         opacity: 1;
         border-radius: 12px;
@@ -132,7 +132,7 @@
         width: 100%;
         color: white;
         font-size: 16px;
-        font-weight: 700;" type="submit">পেমেন্টে যান</button>
+        font-weight: 700;"  :style="[form.method ? {'background': '#000000'} : {'background': 'rgb(167, 159, 159)'}]"   type="submit">পেমেন্টে যান</button>
 
             </div>
 

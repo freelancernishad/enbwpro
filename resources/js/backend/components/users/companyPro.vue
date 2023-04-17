@@ -53,6 +53,11 @@
 
 
                 <br/><br/>
+                Deposit time is 9 am to 12 pm. <br/>
+                Withdrawal time is 10 am to 5 pm.
+
+
+                <br/><br/>
                 It is a long-term institution United Eib-3s.
                 <br/><br/>
 

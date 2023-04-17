@@ -144,22 +144,17 @@ export default {
         //      this.$router.push({ name: 'Authuser' });
         // }
 
-        // if(User.dateformat()[9]<=15){
-        //     if(User.dateformat()[9]>=10){
+        if(User.dateformat()[9]<=16){
+            if(User.dateformat()[9]>=10){
+            }else{
+                this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
+                this.$router.push({ name: 'Authuser' });
+            }
+        }else{
+            this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
+            this.$router.push({ name: 'Authuser' });
+        }
 
-
-        //     }else{
-        //         this.notifiy('প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৪:০০ টা পর্যন্ত')
-
-        //         this.$router.push({ name: 'Useraccount' });
-
-
-        //     }
-        // }else{
-        //     this.notifiy('প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৪:০০ টা পর্যন্ত')
-        //     this.$router.push({ name: 'Useraccount' });
-
-        // }
     },
     data(){
         return {
