@@ -22,6 +22,13 @@
 
 
   <div class="input-group mb-3">
+            <span class="input-group-text" style="padding: 11px 6px;"><img style="width: 26px;" :src="$asseturl+'img/download.png'"
+                    class="icon"></span>
+            <input type="text" class="form-control" placeholder="Invite Code" v-model="form.ref_by" aria-label="Username"
+                aria-describedby="addon-wrapping">
+        </div>
+
+  <div class="input-group mb-3">
 
     <span class="input-group-text py-3 py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
     <input type="text" class="form-control" placeholder="SMS Code" v-model="otp"  required>
