@@ -35,7 +35,7 @@
         <header class="defaltColorBg py-2 rounded-bottom-4 text-white">
     <div class="align-items-center d-flex justify-content-between mx-2 pt-2 text-white">
         <p class="fs-3"></p>
-        <p class="app-download"><i class="fa-solid fa-download p-2"></i>App download</p>
+        <a :href="$asseturl+'unitedeib3s.apk'" class="app-download"><i class="fa-solid fa-download p-2"></i>App download</a>
     </div>
     <div class="">
         <div class="row">
