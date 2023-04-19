@@ -28,7 +28,7 @@
                 aria-describedby="addon-wrapping">
         </div>
 
-  <div class="input-group mb-3">
+  <!-- <div class="input-group mb-3">
 
     <span class="input-group-text py-3 py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
     <input type="text" class="form-control" placeholder="SMS Code" v-model="otp"  required>
@@ -36,7 +36,7 @@
     <button type="button" class="btn fw-bold  rounded-0" @click="sentOtp" style="background: #f1f1f1; color: #333; border: 2px solid var(--defaltColor);  width: 30%;">{{ otpsent }}</button>
 
   </div>
-
+ -->
 
 
 
@@ -281,12 +281,12 @@ export default {
       async  register() {
             this.isActive = true
 
-            var otpcheck = await this.callApi('post',`/api/check/otp?mobile=${this.form.mobile}&otp=${this.otp}`,[]);
+            // var otpcheck = await this.callApi('post',`/api/check/otp?mobile=${this.form.mobile}&otp=${this.otp}`,[]);
 
-            if(otpcheck.data==0){
-                this.isActive = false
-                this.notifiyGlobal("Otp does not match!");
-            }else{
+            // if(otpcheck.data==0){
+            //     this.isActive = false
+            //     this.notifiyGlobal("Otp does not match!");
+            // }else{
 
 
 
@@ -349,7 +349,7 @@ export default {
             //     this.notifiyGlobal("Captcha does not match!");
             // }
             // }
-        }
+        // }
         },
     },
 };
