@@ -93,7 +93,7 @@ class WithdrawalController extends Controller
 
         $dpcount = PackageBuy::where(['userid'=>$user_id])->count();
 
-        if($dpcount>0){
+        // if($dpcount>0){
 
 
 
@@ -130,9 +130,9 @@ class WithdrawalController extends Controller
            transitionCreate($user->id,$request->amount,0,$amount,'decrease','','Withdraw','');
 
 
-    }else{
-        return 422;
-    }
+    // }else{
+    //     return 422;
+    // }
 
     }
 
