@@ -38,7 +38,7 @@
                 <div
                     class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm">
                     <input class="border-0" maxlength="140" v-model="form.amount" step="0.000000000000000001" enterkeyhint="done"
-                        pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" disabled readonly />
+                        pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount"   />
                     <button type="submit" class="money-btn">Recharge</button>
                 </div>
             </div>
