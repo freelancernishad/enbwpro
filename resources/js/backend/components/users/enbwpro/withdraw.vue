@@ -201,8 +201,8 @@ export default {
 
         checkAmount(amount) {
             console.log(amount)
-            if (Number(amount) > Number(this.row.user.balance) - Number(this.settings.new_regitration)) {
-                this.notifiy(`You can't Withdraw ${amount}.Because your account balance is ${this.row.user.balance - this.settings.new_regitration}`);
+            if (Number(amount) > Number(this.row.user.balance)) {
+                this.notifiy(`You can't Withdraw ${amount}.Because your account balance is ${this.row.user.balance}`);
                 this.form.amount = '';
             } else {
                 this.form.amount = amount;

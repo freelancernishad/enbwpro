@@ -119,9 +119,9 @@ class WithdrawalController extends Controller
 
 
 
-        $plans = Plan::where('start_balance','<=',$amount)->where('end_balance','>=',$amount)->where('status','active')->first();
+        // $plans = Plan::where('start_balance','<=',$amount)->where('end_balance','>=',$amount)->where('status','active')->first();
          $user->update([
-             'plan_id'=>planId($amount),
+            //  'plan_id'=>planId($amount),
              'balance'=>$amount,
            ]);
            $data['status'] = 'pending';

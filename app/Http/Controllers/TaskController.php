@@ -99,23 +99,23 @@ class TaskController extends Controller
      $datediff = $now - $your_date;
      $registerDays = round($datediff / (60 * 60 * 24));
 
-             if($registerDays>80000){
+            //  if($registerDays>80000){
 
-                $planName = Plan::find($user->plan_id)->name;
-                if($planName=='VIP0'){
-                 return 1000;
-                }
+            //     $planName = Plan::find($user->plan_id)->name;
+            //     if($planName=='VIP0'){
+            //      return 1000;
+            //     }
 
 
-             }
+            //  }
 
 
 
 
 
      $user = User::find($user_id);
-     $plan_id = $user->plan_id;
-    $plans = Plan::find($plan_id);
+    //  $plan_id = $user->plan_id;
+    // $plans = Plan::find($plan_id);
 
 //  $task_comisition = (($user->balance * $plans->comission_rate) / 100);
 //  $task_comisition =  number_format($task_comisition,2);
@@ -143,7 +143,7 @@ if($tascount>0){
         // return planId($LevelOneNewBalance);
         $LevelOneUser->update([
             'balance' => $LevelOneNewBalance,
-            'plan_id' => planId($LevelOneNewBalance),
+            // 'plan_id' => planId($LevelOneNewBalance),
         ]);
 
         // }
@@ -156,7 +156,7 @@ if($tascount>0){
 
             $LevelTwoUser->update([
                 'balance' => $LevelTwoNewBalance,
-                'plan_id' => planId($LevelTwoNewBalance),
+                // 'plan_id' => planId($LevelTwoNewBalance),
             ]);
         // }
             if ($LevelTwoUser->ref_by) {
@@ -169,7 +169,7 @@ if($tascount>0){
                 transitionCreate($LevelThreeUser->id,$levelThreeCommisition,0,$LevelThreeNewBalance,'increase','','refer_task_commisition','L3');
                 $LevelThreeUser->update([
                     'balance' => $LevelThreeNewBalance,
-                    'plan_id' => planId($LevelThreeNewBalance),
+                    // 'plan_id' => planId($LevelThreeNewBalance),
                 ]);
             // }
             }
@@ -188,7 +188,7 @@ if($tascount>0){
     $user->update([
         'balance'=>$newBalance,
         'receiveable'=>0,
-        'plan_id' => planId($newBalance),
+        // 'plan_id' => planId($newBalance),
     ]);
     transitionCreate($user_id,$task_comisition,0,$newBalance,'increase',quickRandom(10),'task_comisition','');
 
