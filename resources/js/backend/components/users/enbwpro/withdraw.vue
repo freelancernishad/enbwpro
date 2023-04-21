@@ -89,7 +89,7 @@
                     <input  style="width:99%;" v-model="Bank_account" readonly disabled  type="text" placeholder="" class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm" />
 
 
-                    <input maxlength="140" style="width:99%;" v-model="form.amount" step="0.000000000000000001" enterkeyhint="done" pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm" />
+                    <input maxlength="140" style="width:99%;" v-model="form.amount" @input="checkAmount(form.amount)"  step="0.000000000000000001" enterkeyhint="done" pattern="[0-9]*" autocomplete="off" type="number" placeholder="Please select the amount" class="align-items-center border border-danger d-flex justify-content-between money-input mx-2 my-3 p-2 rounded-3 shadow-sm" />
 
                     <div class="w-100 text-center px-4 mt-3" >
                         <button class="btn fw-bold rounded-0 text-white w-100" style="background-color: var(--defaltColor);">Confirm Withdraw</button>
@@ -196,6 +196,17 @@ export default {
         async charageCount() {
             var res = await this.callApi('get', `/api/admin/withdraw/charge/${this.form.method}`, []);
             this.gateways = res.data;
+        },
+
+
+        checkAmount(amount) {
+            console.log(amount)
+            if (Number(amount) > Number(this.row.user.balance) - Number(this.settings.new_regitration)) {
+                this.notifiy(`You can't Withdraw ${amount}.Because your account balance is ${this.row.user.balance - this.settings.new_regitration}`);
+                this.form.amount = '';
+            } else {
+                this.form.amount = amount;
+            }
         },
 
 
