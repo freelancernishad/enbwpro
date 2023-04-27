@@ -137,23 +137,23 @@ export default {
 
         var daysName = this.dayName();
 
-        // if(daysName=='Friday' ||daysName=='Saturday'){
-
-        // }else{
-        //     alert('উত্তোলনেন সময় শুক্রবার ও শনিবার')
-        //      this.$router.push({ name: 'Authuser' });
-        // }
-
-        if(User.dateformat()[9]<=16){
-            if(User.dateformat()[9]>=10){
+        if(daysName=='Sunday' || daysName=='Monday' || daysName=='Tuesday' || daysName=='Wednesday' || daysName=='Thursday'){
+            if(User.dateformat()[9]<=16){
+                if(User.dateformat()[9]>=10){
+                }else{
+                    this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
+                    this.$router.push({ name: 'Authuser' });
+                }
             }else{
                 this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
                 this.$router.push({ name: 'Authuser' });
             }
         }else{
-            this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
-            this.$router.push({ name: 'Authuser' });
+            alert('উত্তোলন শুক্রবার ও শনিবার বন্ধ')
+             this.$router.push({ name: 'Authuser' });
         }
+
+
 
     },
     data(){
