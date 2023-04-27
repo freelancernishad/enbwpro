@@ -77,16 +77,18 @@
 export default {
 
     created() {
-        if(User.dateformat()[9]<=23){
-            if(User.dateformat()[9]>=9){
-            }else{
-                this.notifiyGlobal('Deposit Time Everyday 9am To 12pm.')
-                this.$router.push({ name: 'Authuser' });
-            }
-        }else{
-            this.notifiyGlobal('Deposit Time Everyday 9am To 12pm.')
-            this.$router.push({ name: 'Authuser' });
-        }
+
+        // if(User.dateformat()[9]<=23){
+        //     if(User.dateformat()[9]>=9){
+        //     }else{
+        //         this.notifiyGlobal('Deposit Time Everyday 9am To 12pm.')
+        //         this.$router.push({ name: 'Authuser' });
+        //     }
+        // }else{
+        //     this.notifiyGlobal('Deposit Time Everyday 9am To 12pm.')
+        //     this.$router.push({ name: 'Authuser' });
+        // }
+
     },
 
     data() {
