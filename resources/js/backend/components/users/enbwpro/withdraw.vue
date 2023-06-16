@@ -148,6 +148,7 @@ export default {
                 this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
                 this.$router.push({ name: 'Authuser' });
             }
+
         }else{
             alert('উত্তোলন শুক্রবার ও শনিবার বন্ধ')
              this.$router.push({ name: 'Authuser' });
