@@ -4,7 +4,7 @@
 
 
 
-        <header class="header-text mb-5" style="background-color: #d14d0e;margin-bottom: -16px;">
+        <header class="header-text mb-5" style="background-color: var(--defaltColor);margin-bottom: -16px;">
         <p class="py-2 text-white text-center">রিচার্জ </p>
     </header>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="mx-3 px-3 text-center" >
-            <button type="submit"  class="border btn mt-3 p-2 rounded-5 w-100" href="#" role="button" style="background-color: #d14d0e">রিচার্জ নিশ্চিত করুন</button>
+            <button type="submit"  class="border btn mt-3 p-2 rounded-5 w-100 text-white" href="#" role="button" style="background-color: var(--defaltColor)">রিচার্জ নিশ্চিত করুন</button>
         </div>
     </form>
 

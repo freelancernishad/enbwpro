@@ -3,7 +3,7 @@
 <div>
 
     <header class="py-4 text-center">
-  <h1>Welcome to united-eib3s</h1>
+  <h1>Welcome to Afex 247</h1>
 </header>
 
 <form @submit.prevent="register" class="px-3">

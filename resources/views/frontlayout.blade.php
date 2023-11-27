@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>united-eib3s</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('united.jpg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('logo.jpg') }}">
     <!-- Bootstrap CSS -->
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet" >
     <link href="{{ asset('frontend/css/font-awesome.min.css') }}" rel="stylesheet" >
@@ -76,6 +76,6 @@ console.log("{{ Auth::user() }}")
         </script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
-    <script src="{{ asset('js/frontend.js?ver=1.0.35') }}"></script>
+    <script src="{{ asset('js/frontend.js?ver=1.0.0') }}"></script>
 </body>
 </html>
