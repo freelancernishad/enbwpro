@@ -106,7 +106,7 @@ export default {
                     this.paymentFrom['userid'] = 1;
                     this.paymentFrom['client_userid'] = id;
                     this.paymentFrom['amount'] = this.form.amount;
-                    this.paymentFrom['ipnurl'] = 'https://sfexpress247.com';
+                    this.paymentFrom['ipnurl'] = 'https://afex247.com';
                     var res = await this.callApi('post',`https://checkout-bdt.onepay.bio/api/payment`,this.paymentFrom);
 
                     // console.log(res.data.token)
