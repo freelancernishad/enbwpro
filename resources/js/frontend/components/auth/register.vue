@@ -80,7 +80,7 @@ export default {
             this.form.ref_by = this.$route.query.ref;
             this.refer = 1;
         } else {
-            this.form.ref_by = "16346";
+            this.form.ref_by = "Af24777";
             this.refercheck();
         }
 

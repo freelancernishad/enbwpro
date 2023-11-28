@@ -20,10 +20,13 @@
 <section class="fw-bold mt-3 mx-3">
     <div class="grid-container" style="grid-template-columns: repeat(2, 1fr) !important;">
 
-        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 1500 }" @click="form.amount = 1500">৳1500</p>
-        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 3000 }" @click="form.amount = 3000">৳3000</p>
-        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 7000 }" @click="form.amount = 7000">৳7000</p>
+ 
+        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 1000 }" @click="form.amount = 1000">৳1000</p>
+        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 2600 }" @click="form.amount = 2600">৳2600</p>
+        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 6000 }" @click="form.amount = 6000">৳6000</p>
+        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 10000 }" @click="form.amount = 10000">৳10000</p>
         <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 12000 }" @click="form.amount = 12000">৳12000</p>
+        <p class="bg-white py-3 shadow text-center w-100" :class="{ 'active':form.amount == 25000 }" @click="form.amount = 25000">৳25000</p>
 
 
 

@@ -137,22 +137,22 @@ export default {
 
         var daysName = this.dayName();
 
-        if(daysName=='Sunday' || daysName=='Monday' || daysName=='Tuesday' || daysName=='Wednesday' || daysName=='Thursday'){
-            if(User.dateformat()[9]<=16){
-                if(User.dateformat()[9]>=10){
+        // if(daysName=='Sunday' || daysName=='Monday' || daysName=='Tuesday' || daysName=='Wednesday' || daysName=='Thursday'){
+            if(User.dateformat()[9]<=20){
+                if(User.dateformat()[9]>=9){
                 }else{
-                    this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
+                    this.notifiy('উইথড্র টাইম সকাল ৯টা থেকে রাত ৯টা পযন্ত')
                     this.$router.push({ name: 'Authuser' });
                 }
             }else{
-                this.notifiy('Withdrawal Time Everyday 10am To 5pm.')
+                this.notifiy('উইথড্র টাইম সকাল ৯টা থেকে রাত ৯টা পযন্ত')
                 this.$router.push({ name: 'Authuser' });
             }
 
-        }else{
-            alert('উত্তোলন শুক্রবার ও শনিবার বন্ধ')
-             this.$router.push({ name: 'Authuser' });
-        }
+        // }else{
+        //     alert('উত্তোলন শুক্রবার ও শনিবার বন্ধ')
+        //      this.$router.push({ name: 'Authuser' });
+        // }
 
 
 

@@ -77,9 +77,15 @@ class authController extends Controller
         $CountUser = User::count();
         if($CountUser>0){
             $lastUser = User::latest()->first();
-            $username =  intval($lastUser->username)+1;
+
+          $usernameInt =  explode('Af',$lastUser->username)[1];
+
+
+            $username =  intval($usernameInt)+1;
+             $username = "Af$username";
+
         }else{
-            $username =  '111111';
+            $username =  'Af24777';
         }
 
         // $name = str_replace(" ", "_", $r->mobile);
