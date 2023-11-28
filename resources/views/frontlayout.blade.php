@@ -15,7 +15,7 @@
         *{
             --van-cell-group-background-color:white;
              --van-button-default-background-color:white;
-             --defaltColor:#B000FF;
+             --defaltColor:#5B0007;
         }
 
         .defaltColor{
