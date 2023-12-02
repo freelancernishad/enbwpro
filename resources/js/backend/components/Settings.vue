@@ -103,18 +103,27 @@
                                             <label for="">Telegram Support 1</label>
                                             <!-- <vue-editor v-model="form.notice"></vue-editor> -->
                                             <input v-model="form.telesupport2" class="form-control"/>
-
                                         </div>
                                     </div>
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Telegram Support 2</label>
+                                            <label for="">Whatsapp Customers Service</label>
                                             <!-- <vue-editor v-model="form.notice"></vue-editor> -->
                                             <input v-model="form.telesupport3" class="form-control"/>
-
                                         </div>
                                     </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Whatsapp Group</label>
+                                            <!-- <vue-editor v-model="form.notice"></vue-editor> -->
+                                            <input v-model="form.telesupport4" class="form-control"/>
+                                        </div>
+                                    </div>
+
 
                                     <!-- <div class="col-md-6">
                                         <div class="form-group">
@@ -140,7 +149,7 @@
                                         </div>
                                     </div>
 
-
+<!--
                                     <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label col-form-label">Slider 1
@@ -193,7 +202,7 @@
                                             <b-img thumbnail fluid :src="form.slide4" alt="Image 3"></b-img>
                                             </label>
                                     </div>
-                                </div>
+                                </div> -->
 
 
                                     <div class="col-md-6">
@@ -251,6 +260,11 @@ export default {
                 rocket:[],
 
             },
+            apiForm:{
+                bkash:[],
+                nagad:[],
+                rocket:[],
+            },
             BkashOptions:[],
             NagadOptions:[],
             RocketOptions:[],
@@ -305,6 +319,14 @@ if (file.size > 5048576) {
         },
 
         async onSubmit(){
+
+
+            this.apiForm.bkash = this.form.bkash
+            this.apiForm.nagad = this.form.nagad
+            this.apiForm.rocket = this.form.rocket
+
+            var res1 = await this.callApi('post', `https://onepay.bio/api/set/account/1`, this.apiForm);
+
             var res = await this.callApi('put', `/api/admin/setting/1`, this.form);
              Notification.customSuccess(`Your data has been Updated`);
 
