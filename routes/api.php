@@ -144,6 +144,13 @@ Route::post('sent/otp',[OtpController::class,'setotp']);
 Route::post('check/otp',[OtpController::class,'checkotp']);
 
 Route::post('sent/notice/sms',[MessageController::class ,'smsNotice']);
+
+
+Route::resources([
+    'admin/deposit' => DepositController::class,
+]);
+
+
 Route::group([
     'middleware' => 'auth:api'
 ], function () {
@@ -187,7 +194,7 @@ Route::get('front/last/records',[UserController::class,'lastRecords']);
 
 Route::resources([
     'admin/user' => UserController::class,
-    'admin/deposit' => DepositController::class,
+    // 'admin/deposit' => DepositController::class,
     'admin/withdrawal' => WithdrawalController::class,
     'admin/level' => LevelController::class,
     'admin/plan' => PlanController::class,
