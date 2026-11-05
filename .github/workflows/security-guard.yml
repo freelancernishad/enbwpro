@@ -1,0 +1,92 @@
+name: Security Anti-Malware Guard
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  scan-malware:
+    name: Scan Repository for Malware & Behavioral Injections
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Behavioral & Heuristic Anti-Malware Check
+        id: malware_check
+        run: |
+          echo "=== Running Next-Gen Security Anti-Malware Guard ==="
+          FAILED=0
+
+          # 1. Generic Root Dropper & Script Check (any .bat, .cmd, or extensionless files)
+          ROOT_FILES=$(find . -maxdepth 1 -type f -not -name ".*" -not -name "*.*")
+          for f in $ROOT_FILES; do
+            base=$(basename "$f")
+            case "$base" in
+              LICENSE|LICENCE|README|Procfile|Dockerfile|Makefile)
+                ;;
+              *)
+                echo "❌ CRITICAL SECURITY ERROR: Suspicious extensionless file in root directory: $f"
+                FAILED=1
+                ;;
+            esac
+          done
+
+          # Check for batch or script dropper files anywhere
+          DANGEROUS_FILES=$(find . -maxdepth 5 -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/.next/*" -not -path "*/vendor/*" \( -name "api.js" -o -name "init" -o -name "branch_structure.json" -o -name "temp_*.bat" -o -name "config.bat" -o -name "*.bat" -o -name "*.cmd" -o -name "*.vbs" \))
+          if [ -n "$DANGEROUS_FILES" ]; then
+            echo "❌ CRITICAL SECURITY ERROR: Malware or dropper script file detected:"
+            echo "$DANGEROUS_FILES"
+            FAILED=1
+          fi
+
+          # 2. Behavioral Check: package.json Script Chaining / Hijacking
+          for pkg in $(find . -maxdepth 3 -name "package.json" -not -path "*/node_modules/*"); do
+            if grep -E "(node[[:space:]]+(\./|\.)?[a-zA-Z0-9_\-\.]+[[:space:]]*&&|&&[[:space:]]*(next|react-scripts|vite|remix|astro)|&&[[:space:]]*node[[:space:]]+|\b(cmd|powershell|bash|sh)[[:space:]]*/c)" "$pkg" > /dev/null 2>&1; then
+              echo "❌ CRITICAL SECURITY ERROR: Script hijacking pattern detected in $pkg!"
+              FAILED=1
+            fi
+          done
+
+          # 3. Behavioral Check: Config Files Obfuscation & Payloads
+          for cfg in $(find . -maxdepth 3 -not -path "*/node_modules/*" -not -path "*/.git/*" -type f \( -name "*config*" -o -name "*rc*" -o -name "*.mjs" -o -name "*.js" \)); do
+            # Known malware signatures
+            if grep -E "(global\[['\"][!\\x21\\u0021]['\"]\]|global\.i[[:space:]]*=|rv\$mIJCKYxZ|118\.107\.135|193\.247\.|splitLane\(|spin\(R,|peel\(|fromCharCode|edon)" "$cfg" > /dev/null 2>&1; then
+              echo "❌ CRITICAL SECURITY ERROR: Known malware payload signature in $cfg!"
+              FAILED=1
+            fi
+            # Generic hex/unicode obfuscation blocks
+            if grep -E "(\\x[0-9a-fA-F]{2}){3,}|(\\u[0-9a-fA-F]{4}){3,}|eval\(|new[[:space:]]+Function\(" "$cfg" > /dev/null 2>&1; then
+              echo "❌ CRITICAL SECURITY ERROR: Obfuscated hex/eval payload detected in $cfg!"
+              FAILED=1
+            fi
+            # Trailing hidden tabs/spaces
+            if grep -E "	{5,}" "$cfg" > /dev/null 2>&1; then
+              echo "❌ CRITICAL SECURITY ERROR: Hidden tab payload in $cfg!"
+              FAILED=1
+            fi
+          done
+
+          if [ $FAILED -ne 0 ]; then
+            echo ""
+            echo "🛑 SECURITY GUARD: Malicious pattern or injection detected. Build rejected."
+            exit 1
+          fi
+
+          echo "✅ Repository passed all Next-Gen Anti-Malware Behavioral checks."
+
+      - name: Auto-Close Malicious Pull Request
+        if: failure() && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🛑 Malicious injection detected in PR #${{ github.event.pull_request.number }}. Automatically closing PR..."
+          gh pr comment ${{ github.event.pull_request.number }} --body "🛑 **[SECURITY GUARD AUTO-BLOCK]** A malicious injection, unauthorized script runner (node init / api.js), or obfuscated config payload was detected in this pull request. To prevent repository infection, this PR has been **automatically closed and rejected**." || true
+          gh pr close ${{ github.event.pull_request.number }} || true
